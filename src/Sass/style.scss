@@ -14,6 +14,8 @@
 @import './footer';
 @import './notfound';
 @import './pagination';
+@import './sidebar';
+@import './contents';
 
 * {
     margin: 0;
@@ -57,7 +59,6 @@ body {
 
 h1,h2,h3,h4,h5,h6 {
     font-family: var(--ff2);
-    font-weight: 300;
 }
 
 ul{
@@ -145,6 +146,7 @@ a, select , input , textarea , button{
     display: inline-block;
     color: var(--fc3);
     background-color: var(--fc4);
+    border: none;
     text-transform: uppercase;
     text-decoration: none;
     text-align: center;

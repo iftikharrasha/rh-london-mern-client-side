@@ -54,7 +54,7 @@ const SignUp = () => {
                 wrapper.innerHTML = '';
                 const span = document.createElement('span');
                 span.innerHTML = `
-                    <i class="fas fa-times-circle i-wrong" aria-hidden="true"></i>
+                    <i className="fas fa-times-circle i-wrong" aria-hidden="true"></i>
                 `;
                 wrapper.appendChild(span);
             }else{
@@ -62,7 +62,7 @@ const SignUp = () => {
                 wrapper.innerHTML = '';
                 const span = document.createElement('span');
                 span.innerHTML = `
-                    <i class="fas fa-check-circle i-right" aria-hidden="true"></i>
+                    <i className="fas fa-check-circle i-right" aria-hidden="true"></i>
                 `;
                 wrapper.appendChild(span);
             }
@@ -81,7 +81,7 @@ const SignUp = () => {
                 wrapper.innerHTML = '';
                 const span = document.createElement('span');
                 span.innerHTML = `
-                    <i class="fas fa-times-circle i-wrong" aria-hidden="true"></i>
+                    <i className="fas fa-times-circle i-wrong" aria-hidden="true"></i>
                 `;
                 wrapper.appendChild(span);
             }else{
@@ -89,7 +89,7 @@ const SignUp = () => {
                 wrapper.innerHTML = '';
                 const span = document.createElement('span');
                 span.innerHTML = `
-                    <i class="fas fa-check-circle i-right" aria-hidden="true"></i>
+                    <i className="fas fa-check-circle i-right" aria-hidden="true"></i>
                 `;
                 wrapper.appendChild(span);
             }
@@ -109,9 +109,7 @@ const SignUp = () => {
                 <div className="d-flex align-items-center justify-content-center">
                     <div className="login-form bg-tag-1">
                         <div className="text-center">
-                        <h2 className="mt-3 text-center reg-28">Create Your 
-                            <b className="font-bold"> Account
-                            </b>
+                        <h2 className="mt-3 text-center reg-28">Create Account 
                         </h2>
                         </div>
                         <form className="form" onSubmit={handleNormalAuth}>
@@ -150,7 +148,7 @@ const SignUp = () => {
                                 <button className="signin-btn">Create an account
                                 </button>
                             </div>
-                            <div className="mt-4 text-center lit-14">Already have an account?
+                            <div className="mt-4 text-center lit-14 text-dark">Already have an account?
                                 <Link to="/login" className="ml-1 lit-14"><u>Login</u>
                                 </Link>
                             </div>
@@ -161,17 +159,13 @@ const SignUp = () => {
 
                 <Container className="mt-5">
                     <Row>
-                        <Col md={4} className="offset-md-4">
-                            <Row>
-                                <Col md={12}>
-                                    <div className="social-login d-block">
-                                        <button onClick={handleGoogleSignIn}>
-                                            <img src={google} alt="google"/>
-                                            <span className="ml-2">Continue with Google</span> 
-                                        </button>
-                                    </div>
-                                </Col>
-                            </Row>
+                        <Col md={12} className="text-center">
+                            <div className="social-login d-block">
+                                <button onClick={handleGoogleSignIn}>
+                                    <img src={google} alt="google"/>
+                                    <span className="ml-2">Continue with Google</span> 
+                                </button>
+                            </div>
                         </Col>
                     </Row>
                 </Container>

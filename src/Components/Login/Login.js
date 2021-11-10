@@ -125,9 +125,7 @@ const Login = () => {
                 <div className="d-flex align-items-center justify-content-center">
                     <div className="login-form bg-tag-1">
                         <div className="text-center">
-                            <h2 className="mt-3 text-center reg-28">Login to 
-                                <b className="font-bold"> Island
-                                </b>
+                            <h2 className="mt-3 text-center reg-28">Dashboard Login
                             </h2>
                         </div>
                         <form className="form" onSubmit={handleNormalAuth}>
@@ -159,17 +157,13 @@ const Login = () => {
 
                 <Container className="mt-5">
                     <Row>
-                        <Col md={4} className="offset-md-4">
-                            <Row>
-                                <Col md={12}>
-                                    <div className="social-login d-block">
-                                        <button onClick={handleGoogleSignIn}>
-                                            <img src={google} alt="google"/>
-                                            <span className="ml-2">Continue with Google</span> 
-                                        </button>
-                                    </div>
-                                </Col>
-                            </Row>
+                        <Col md={12} className="text-center">
+                            <div className="social-login d-block">
+                                <button onClick={handleGoogleSignIn}>
+                                    <img src={google} alt="google"/>
+                                    <span className="ml-2">Continue with Google</span> 
+                                </button>
+                            </div>
                         </Col>
                     </Row>
                 </Container>

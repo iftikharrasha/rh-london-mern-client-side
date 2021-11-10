@@ -1,11 +1,12 @@
 .intro {
+    background-color: var(--fc5);
     position: relative;
     .intro-inner {
         display: grid;
         gap: 5rem;
         grid-template-columns: 1fr 1fr;
         justify-items: center;
-        margin-top: 1rem;
+        padding-top: 1rem;
         @media (max-width: 575.98px) {
             grid-gap: 0;
             gap: 0; 

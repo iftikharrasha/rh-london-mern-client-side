@@ -29,10 +29,10 @@ const Footer = () => {
                         </div>
                         <div className="footer-navs">
                             <ul>
-                                <li><i aria-hidden="true" class="fab fa-instagram mr-2"></i><a href="#">Instagram</a></li>
-                                <li><i aria-hidden="true" class="fab fa-facebook mr-2"></i><a href="#">Facebook</a></li>
-                                <li><i aria-hidden="true" class="fab fa-twitter mr-2"></i><a href="#">Twitter</a></li>
-                                <li><i aria-hidden="true" class="fab fa-linkedin mr-2"></i><a href="#">LinkedIn</a></li>
+                                <li><i aria-hidden="true" className="fab fa-instagram mr-2"></i><a href="#">Instagram</a></li>
+                                <li><i aria-hidden="true" className="fab fa-facebook mr-2"></i><a href="#">Facebook</a></li>
+                                <li><i aria-hidden="true" className="fab fa-twitter mr-2"></i><a href="#">Twitter</a></li>
+                                <li><i aria-hidden="true" className="fab fa-linkedin mr-2"></i><a href="#">LinkedIn</a></li>
                             </ul>
                         </div>
                     </div>

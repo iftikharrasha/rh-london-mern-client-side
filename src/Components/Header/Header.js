@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import firebase from "firebase/compat/app";
 import logo from '../../img/logo.png';
+import logout from '../../img/logout.svg';
 
 import {UserContext} from "../../App";
 
@@ -44,7 +45,7 @@ const Header = () => {
 
     return (
         <>
-            <header className={scroll ? "header py-3 px-sm-5 px-4 fixed-header" : "header py-3 px-sm-5 px-4"} id="header">
+            <header className={scroll ? "header py-4 px-sm-5 px-4 fixed-header" : "header py-4 px-sm-5 px-4"} id="header">
                 <nav className="nav-left">
                     <div className="left-menu">
                         <ul>
@@ -55,8 +56,8 @@ const Header = () => {
                 </nav>
 
                 <div className="logo">
-                    <Link to="/home">RH LONDON</Link>
-                    {/* <Link to="/home"><img src={logo} alt={logo} className="img-fluid"/></Link> */}
+                    {/* <Link to="/home">RH LONDON</Link> */}
+                    <Link to="/home"><img src={logo} alt={logo} className="img-fluid"/></Link>
                 </div>
 
                 <nav className="nav-right">
@@ -72,7 +73,7 @@ const Header = () => {
                                                                 </Link>
                                                             </li>
                                                             <li><Link to="/dashboard">Dashboard</Link></li>
-                                                            <li><Link to="/" onClick={handleSignOut}>Logout</Link></li>
+                                                            <li><Link to="/" onClick={handleSignOut}>Logout <img src={logout} alt={logout} className="img-fluid ml-2"/></Link></li>
                                                         </ul>
 
                                                     :   <ul>
