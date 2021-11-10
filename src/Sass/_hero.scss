@@ -8,9 +8,29 @@
     .text {
         text-align: center;
         h1 {
-            font-size: 6.75rem;
+            font-size: 6rem;
             line-height: 7rem;
             font-weight: 600;
+            @media (max-width: 575.98px) {
+                font-size: 2rem;
+                line-height: 3rem;
+            }
+            
+            @media (min-width: 576px) and (max-width: 767.98px) {
+                font-size: 4rem;
+                line-height: 5rem;
+            }
+            
+            @media (min-width: 768px) and (max-width: 991.98px) {
+                font-size: 4rem;
+                line-height: 5rem;
+            }
+        }
+        p{
+            @media (max-width: 575.98px) {
+                width: 80%;
+                margin: 0 auto;
+            }
         }
     }
 }

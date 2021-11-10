@@ -44,7 +44,7 @@ const Header = () => {
 
     return (
         <>
-            <header className={scroll ? "header py-3 px-5 fixed-header" : "header py-3 px-5"} id="header">
+            <header className={scroll ? "header py-3 px-sm-5 px-4 fixed-header" : "header py-3 px-sm-5 px-4"} id="header">
                 <nav className="nav-left">
                     <div className="left-menu">
                         <ul>

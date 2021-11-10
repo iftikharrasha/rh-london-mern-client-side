@@ -7,10 +7,10 @@ const Intro = () => {
             <section className="intro">
                 <Container className="c--custom">
                     <div className="intro-inner py-5">
-                        <div className="text text-right">
+                        <div className="text text-sm-right text-center">
                             <h3>We are a full service boutique salon that specialisesin ethical hair extensions.</h3>
                         </div>
-                        <div className="text text-left">
+                        <div className="text text-sm-left text-center">
                             <h3>A bespoke hair salon Specialized in ethical hair extensions with perfect colour match!</h3>
                         </div>
                     </div>

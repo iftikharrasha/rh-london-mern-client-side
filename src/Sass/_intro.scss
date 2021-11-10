@@ -6,11 +6,20 @@
         grid-template-columns: 1fr 1fr;
         justify-items: center;
         margin-top: 1rem;
+        @media (max-width: 575.98px) {
+            grid-gap: 0;
+            gap: 0; 
+            grid-template-columns: 1fr;
+        }
         .text{
             margin-bottom: 5rem;
             h3 {
+                font-size: 1.5rem;
                 text-transform: uppercase;
                 line-height: 2rem;
+                @media (max-width: 575.98px) {
+                    font-size: 1.5rem;
+                }
             }
         }
     }

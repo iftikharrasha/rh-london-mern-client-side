@@ -76,7 +76,6 @@ function App() {
                                     <Collections/>
                                     <Imagination/>
                                     <Footer/>
-                                    {/* <Offers/>*/}
                                 </Route>
                                 <Route path="/home">
                                     <Header/>

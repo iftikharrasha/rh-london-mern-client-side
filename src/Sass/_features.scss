@@ -4,12 +4,25 @@
         padding-top: 10rem;
         .features-inner {
             @include flexCenter;
+            @media (max-width: 575.98px) {
+                flex-direction: column;
+            }
             img {
+                width: 27rem;
                 height: 40rem;
+                @media (max-width: 575.98px) {
+                    width: 100%;
+                    height: auto;
+                }
             }
             .text {
                 margin-left: -6.5rem;
                 z-index: 10;
+                @media (max-width: 575.98px) {
+                    margin: 0;
+                    text-align: left;
+                    margin-top: 5rem;
+                }
                 h2{
                     text-transform: uppercase;
                     color: var(--fc5);
@@ -19,6 +32,15 @@
                 .text-inner {
                     position: relative;
                     margin: 5rem 0 0 14rem;
+                    @media (max-width: 575.98px) {
+                        margin: 2.5rem 0;
+                    }
+                    @media (min-width: 576px) and (max-width: 767.98px) {
+                        margin: 5rem 0 0 13rem;
+                    }
+                    @media (min-width: 768px) and (max-width: 991.98px) {
+                        margin: 5rem 0 0 13rem;
+                    }
                     p{
                         color: var(--fc1);
                     }
@@ -29,7 +51,10 @@
                         left: -3rem;
                         width: 2px;
                         height: 100%;
-                        background: linear-gradient(to top, transparent, var(--fc4))
+                        background: linear-gradient(to top, transparent, var(--fc4));
+                        @media (max-width: 575.98px) {
+                            display: none;
+                        }
                     }
                 }
             }
@@ -40,8 +65,23 @@
                 margin-left: inherit;
                 margin-right: -6.5rem;
                 text-align: right;
+                @media (max-width: 575.98px) {
+                    margin: 0;
+                    text-align: left;
+                    margin-top: 5rem;
+                    order: 2;
+                }
                 .text-inner{
                     margin: 5.5rem 14rem 0 0;
+                    @media (max-width: 575.98px) {
+                        margin: 2.5rem 0;
+                    }
+                    @media (min-width: 576px) and (max-width: 767.98px) {
+                        margin: 5.5rem 13rem 0 0;
+                    }
+                    @media (min-width: 768px) and (max-width: 991.98px) {
+                        margin: 5.5rem 13rem 0 0;
+                    }
                     &:before{
                         left: inherit;
                         right: -3rem;

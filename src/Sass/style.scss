@@ -25,21 +25,21 @@
 html {
     font-size: 16px;
     scroll-behavior: smooth;
-    // @media (max-width: 575.98px) {
-    //     font-size: 12px;
-    // }
-    // @media (min-width: 576px) and (max-width: 767.98px){
-    //     font-size: 12px;
-    // }
-    // @media (min-width: 768px) and (max-width: 991.98px){
-    //     font-size: 12px;
-    // }
-    // @media (min-width: 992px) and (max-width: 1299.98px){
-    //     font-size: 12px;
-    // }
-    // @media (min-width: 1300px) and (max-width: 1531.98px){
-    //     font-size: 13px;
-    // }
+    @media (max-width: 575.98px) {
+        font-size: 12px;
+    }
+    @media (min-width: 576px) and (max-width: 767.98px){
+        font-size: 12px;
+    }
+    @media (min-width: 768px) and (max-width: 991.98px){
+        font-size: 12px;
+    }
+    @media (min-width: 992px) and (max-width: 1299.98px){
+        font-size: 12px;
+    }
+    @media (min-width: 1300px) and (max-width: 1531.98px){
+        font-size: 13px;
+    }
 }
 
 body {
@@ -92,6 +92,18 @@ a, select , input , textarea , button{
 .reg-22{
     font-size: 1.375rem;
     line-height: 2.25rem;
+    @media (max-width: 575.98px) {
+        font-size: 1.2rem;
+        line-height: 2rem;
+    }
+    @media (min-width: 576px) and (max-width: 767.98px) {
+        font-size: 1.2rem;
+        line-height: 2rem;
+    }
+    @media (min-width: 768px) and (max-width: 991.98px) {
+        font-size: 1.2rem;
+        line-height: 2rem;
+    }
 }
 
 .reg--24{
@@ -109,6 +121,18 @@ a, select , input , textarea , button{
     font-size: 3.5rem;
     line-height: 3.5rem;
     font-weight: bold;
+    @media (max-width: 575.98px) {
+        font-size: 2rem;
+        line-height: 2.5rem;
+    }
+    @media (min-width: 576px) and (max-width: 767.98px) {
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+    }
+    @media (min-width: 768px) and (max-width: 991.98px) {
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+    }
 }
 
 .c--custom {
