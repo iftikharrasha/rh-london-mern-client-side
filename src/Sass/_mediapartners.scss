@@ -1,0 +1,7 @@
+.brand-logo {
+    padding: 3rem 0;
+    .brand-logo-inner {
+        @include flexCenter;
+        justify-content: space-between;
+    }
+}

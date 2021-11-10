@@ -1,0 +1,19 @@
+.banner {
+    min-height: 62rem;
+    background-image: linear-gradient(to right bottom, rgba(14, 23, 21, 1), rgba(210, 180, 140, 0)), url(../img/cover.jpg);
+    background-size: cover;
+    background-position: top;
+    @include flexCenter;
+    position: relative;
+    .text {
+        text-align: center;
+        h1 {
+            font-size: 6.75rem;
+            line-height: 7rem;
+            font-weight: 600;
+        }
+    }
+}
+
+
+

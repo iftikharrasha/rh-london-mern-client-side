@@ -1,0 +1,72 @@
+.feature {
+    background-color: var(--fc2);
+    .features {
+        padding-top: 10rem;
+        .features-inner {
+            @include flexCenter;
+            img {
+                height: 40rem;
+            }
+            .text {
+                margin-left: -6.5rem;
+                z-index: 10;
+                h2{
+                    text-transform: uppercase;
+                    color: var(--fc5);
+                    font-weight: 600;
+                    word-spacing: 0.5rem;
+                }
+                .text-inner {
+                    position: relative;
+                    margin: 5rem 0 0 14rem;
+                    p{
+                        color: var(--fc1);
+                    }
+                    &:before {
+                        content: " ";
+                        position: absolute;
+                        top: .8rem;
+                        left: -3rem;
+                        width: 2px;
+                        height: 100%;
+                        background: linear-gradient(to top, transparent, var(--fc4))
+                    }
+                }
+            }
+        }
+        &:nth-child(even){
+            padding-bottom: 10rem;
+            .text{
+                margin-left: inherit;
+                margin-right: -6.5rem;
+                text-align: right;
+                .text-inner{
+                    margin: 5.5rem 14rem 0 0;
+                    &:before{
+                        left: inherit;
+                        right: -3rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// .features:nth-child(even) .features-inner {
+//     padding-bottom: 10rem;
+// }
+
+// .features:nth-child(even) .text{
+//     margin-left: inherit;
+//     margin-right: -6.5rem;
+//     text-align: right;
+// }
+
+// .features:nth-child(even) .text-inner{
+//     margin: 5.5rem 19rem 0 0;
+// }
+
+// .features:nth-child(even) .text-inner:before{
+//     left: inherit;
+//     right: -3rem;
+// }

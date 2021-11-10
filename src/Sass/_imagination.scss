@@ -1,0 +1,31 @@
+.showcase {
+    color: #000;
+    background-color: var(--fc3);
+    .showcase-inner {
+        padding: 10rem 0;
+        text-align: center;
+        h2{
+            text-transform: uppercase;
+            margin-bottom: 10rem;
+        }
+        .items {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5rem;
+        }
+        .item1,
+        .item2,
+        .item3 {
+            min-height: 40rem;
+            width: 30rem;
+            object-fit: cover;
+            padding: 2rem;
+            transform: rotate(22deg);
+        }
+    }
+}
+
+
+
+

@@ -1,0 +1,43 @@
+@font-face {
+    font-family: 'Poppins-Regular';
+    src: url('../fonts/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Bodoni-Moda';
+    src: url('../fonts/Bodoni-Moda.ttf');
+}
+
+@font-face {
+    font-family: 'Antonio';
+    src: url('../fonts/Antonio.ttf');
+}
+
+:root {
+    --fc1 : #0b090a;
+    --fc2 : #F6F0E9;
+    --fc3 : #FFFFFF;
+    --fc4 : #d2b48c;
+    --fc5: #0e1715;
+
+    --ff1 : 'Poppins-Regular', sans-serif;
+    --ff2 : 'Bodoni-Moda', serif;
+    --ff3 : 'Antonio', sans-serif;
+}
+
+$fc1: var(--fc1);
+$fc2: var(--fc2);
+$fc3: var(--fc3);
+$fc4: var(--fc4);
+$fc5: var(--fc5);
+
+$ff1: var(--ff1);
+$ff2: var(--ff2);
+$ff3: var(--ff3);
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  

@@ -1,0 +1,153 @@
+@import './variables';
+@import './header';
+@import './hero';
+@import './mediapartners';
+@import './features';
+@import './imagination';
+@import './collections';
+@import './offers';
+@import './offerdetails';
+@import './orders';
+@import './placeorder';
+@import './login';
+@import './intro';
+@import './footer';
+@import './notfound';
+@import './pagination';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    // @media (max-width: 575.98px) {
+    //     font-size: 12px;
+    // }
+    // @media (min-width: 576px) and (max-width: 767.98px){
+    //     font-size: 12px;
+    // }
+    // @media (min-width: 768px) and (max-width: 991.98px){
+    //     font-size: 12px;
+    // }
+    // @media (min-width: 992px) and (max-width: 1299.98px){
+    //     font-size: 12px;
+    // }
+    // @media (min-width: 1300px) and (max-width: 1531.98px){
+    //     font-size: 13px;
+    // }
+}
+
+body {
+    background-color: var(--fc5);
+    color: var(--fc3);
+    font-family: var(--ff1);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: all 0.3s ease-in-out;
+}
+
+.overflowX {
+	overflow-x: hidden;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: var(--ff2);
+    font-weight: 300;
+}
+
+ul{
+	margin: 0;
+	padding:0;
+	list-style: none;
+}
+
+a{
+	margin:0;
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration:none;
+}
+
+a, select , input , textarea , button{
+	outline: none !important;
+}
+
+.btn:focus, .btn.focus, .form-control:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
+.btn-link:focus, .btn-link.focus {
+    text-decoration: none;
+}
+
+/*fonts*/
+.reg-22{
+    font-size: 1.375rem;
+    line-height: 2.25rem;
+}
+
+.reg--24{
+    font-size: 1.5rem;
+}
+
+.reg-bod-24{
+    font-family: $ff2;
+    font-size: 1.5rem;
+    line-height: 3rem;
+}
+
+.reg-bod-56{
+    font-family: $ff2;
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+    font-weight: bold;
+}
+
+.c--custom {
+    max-width: 90rem;
+}
+
+/* button */
+.btn {
+    position: relative;
+    display: inline-block;
+    color: var(--fc3);
+    background-color: var(--fc4);
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 400;
+    padding: 1.5rem 5rem;
+    z-index: 10;
+    margin-top: 3rem;
+    backface-visibility: hidden;
+    transition: all .5s ease-in-out;
+    &:hover {
+        color: var(--fc3);
+        &:before {
+            top: 0;
+            height: 100%;
+        }
+    }
+    &:before {
+        content: " ";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 0;
+        opacity: 1;
+        z-index: -1;
+        background-color: var(--fc5);
+        transition: all .5s ease-in-out;
+    }
+}

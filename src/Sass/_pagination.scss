@@ -1,0 +1,55 @@
+.page-ul {
+    padding: 0.625rem 1.25rem;
+    border-radius: 1.5625rem;
+    box-shadow: 0 0.3125rem 10.3125rem rgba(0, 0, 0, 0.2);
+    li {
+      list-style: none;
+      line-height: 3.125rem;
+      margin: 0 0.3125rem;
+      .pageNumber {
+        width: 3.125rem;
+        height: 3.125rem;
+        line-height: 3.125rem;
+        text-align: center;
+        a {
+          display: block;
+          text-decoration: none;
+          color: #383838;
+          font-weight: 600;
+          border-radius: 50%;
+        }
+        &:hover{
+          a{
+              background: #383838;
+              color: #C4E7C9;
+              border-color: transparent;
+              box-shadow: none;
+          }
+        }
+      }
+      .active{
+        a {
+          background: #383838;
+          color: #C4E7C9;
+          border-color: transparent;
+          box-shadow: none;
+        }
+      }
+    }
+    .prev, .next{
+      a{
+        color: #2D2E2F;
+        border: none;
+        border-color: transparent;
+        &:focus, &:focus{
+          box-shadow: none;
+        }
+      }
+    }
+    &:first-child {
+      margin-right: 1.875rem;
+    }
+    &:last-child {
+      margin-left: 1.875rem;
+    }
+}

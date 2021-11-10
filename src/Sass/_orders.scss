@@ -1,0 +1,203 @@
+.orders{
+    padding: 2rem 0 10rem 0;
+    .c--custom--2 {
+        max-width: 88rem;
+    }
+    .service--table{
+        color: black;
+        .service--card{
+            padding: 0 1rem;
+            border-radius: .625rem;
+            .card--title{
+                padding: 0 0 1rem 0;
+                p{
+                    @media (max-width: 575.98px) {
+        
+                    }
+                    @media (min-width: 576px) and (max-width: 767.98px) {
+                        font-size: 0.72rem;
+                    }
+                    
+                    @media (min-width: 768px) and (max-width: 991.98px) {
+                        font-size: 0.72rem;
+                    }
+                }
+            }
+            .card--data{
+                background: lightblue;
+                color: white;
+                border-radius: 0.4rem;
+                .profile{
+                    @include flexCenter;
+                    justify-content: flex-start;
+                    .platform--icon{
+                        @include flexCenter;
+                        background: white;
+                        padding: 1rem;
+                        width: 4rem;
+                        height: 4rem;
+                        @media (max-width: 575.98px) {
+                            border-top-left-radius: 0;
+                            border-bottom-left-radius: 0;
+                        }
+                        @media (min-width: 768px) and (max-width: 991.98px) {
+                            width: 3.5rem;
+                            height: 3.5rem;
+                        }
+                    }
+                }
+                .platform{
+                    @media (max-width: 575.98px) {
+                        position: relative;
+                    }
+                    p{
+                        @media (max-width: 575.98px) {
+                            font-size: 1.2rem;
+                        }
+                        @media (min-width: 576px) and (max-width: 767.98px) {
+                            font-size: .8rem;
+                        }
+                        @media (min-width: 768px) and (max-width: 991.98px) {
+                            font-size: .8rem;
+                        }
+                        @media (min-width: 992px) and (max-width: 1299.98px) {
+                            font-size: 1.125rem;
+                        }
+                    }
+                    .platform--toggle{
+                        position: absolute;
+                        right: .5rem;
+                        color: purple;
+                    }
+                }
+                .label{
+                    @include flexCenter;
+                    justify-content: flex-start;
+                    p{
+                        background: purple;
+                        padding: .2rem .5rem;
+                        border-radius: 0.3rem;
+                        text-transform: uppercase;
+                        @media (min-width: 576px) and (max-width: 767.98px) {
+                            font-size: .8rem;
+                        }
+                        @media (min-width: 768px) and (max-width: 991.98px) {
+                            font-size: .8rem;
+                        }
+                    }
+                }
+                .traffic{
+                    @include flexCenter;
+                    justify-content: flex-start;
+                    p{
+                        @media (min-width: 576px) and (max-width: 767.98px) {
+                            font-size: 1rem;
+                        }
+                        @media (min-width: 768px) and (max-width: 991.98px) {
+                            font-size: 1rem;
+                        }
+                        .up{
+                            color: green;
+                            &:before {
+                                content: "⮝";
+                            }
+                        }
+                        .down{
+                            color: pink;
+                            &:before {
+                                content: "⮟";
+                            }
+                        }
+                    }
+                }
+                .price{
+                    @include flexCenter;
+                    justify-content: flex-start;
+                    p, button{
+                        background-color: transparent;
+                        border: none;
+                        @media (max-width: 575.98px) {
+                            font-size: 1.2rem;
+                        }
+                        @media (min-width: 576px) and (max-width: 767.98px) {
+                            font-size: 1rem;
+                        }
+                        @media (min-width: 768px) and (max-width: 991.98px) {
+                            font-size: 1rem;
+                        }
+                        @media (min-width: 992px) and (max-width: 1299.98px) {
+                            font-size: 1.125rem;
+                        }
+                        span{
+                            color: green;
+                            text-transform: uppercase;
+                            @media (max-width: 575.98px) {
+        
+                            }
+                            @media (min-width: 576px) and (max-width: 767.98px) {
+                                font-size: 1rem;
+                            }
+                            
+                            @media (min-width: 768px) and (max-width: 991.98px) {
+                                font-size: 1rem;
+                            }
+                        }
+                    }
+                }
+                .store{
+                    @include flexCenter;
+                    justify-content: flex-start;
+                    a, button{
+                        background-color: transparent;
+                        border: none;
+                        color: white;
+                        text-transform: uppercase;
+                        @media (max-width: 575.98px) {
+                            font-size: 1rem;
+                        }
+                        @media (min-width: 576px) and (max-width: 767.98px) {
+                            font-size: 1rem;
+                        }
+                        @media (min-width: 768px) and (max-width: 991.98px) {
+                            font-size: 1rem;
+                        }
+                        @media (min-width: 992px) and (max-width: 1299.98px) {
+                            font-size: 1.125rem;
+                        }
+                    }
+                }
+                .label, .traffic, .price{
+                    @media (max-width: 575.98px) {
+                        display: none;
+                    }
+                }
+                .inserted{
+                    .label, .traffic, .price, .store{
+                        @media (max-width: 575.98px) {
+                            display: block;
+                            padding: 0 0.4rem;
+                            text-align: right;
+                        }
+                    }
+                    .price{
+                        p{
+                            span{
+                                @media (max-width: 575.98px) {
+                                    display: block;
+                                }
+                            }
+                        }
+                    }
+                    .headlines{
+                        @media (max-width: 575.98px) {
+                            width: 50%;
+                            background: purple;
+                            color: white;
+                            padding: 0.8rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

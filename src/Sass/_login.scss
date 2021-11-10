@@ -1,0 +1,79 @@
+.login {
+    padding: 3.125rem;
+    @media (max-width: 575.98px) {
+        padding: 0.625rem;
+    }
+    .login-form{
+        width: 36.25rem;
+        padding: 1rem 4.0625rem;
+        border-radius: .75rem;
+        box-shadow: 0 5px 50px rgba(129,74,255,0.2);
+        @media (max-width: 575.98px) {
+            padding: 1.5625rem 1.25rem;
+        }
+        @media (min-width: 576px) and (max-width: 1199.98px) {
+            max-width: 30rem;
+        }
+        .form{
+            .input-field{
+                position: relative;
+                input, textarea{
+                    width: 100% !important;
+                    padding-left: 2.8125rem !important;
+                }
+                .i-envelope {
+                    position: absolute;
+                    padding-left: 0.9375rem;
+                    top: 18px;
+                }
+                span{
+                    .i-wrong {
+                        position: absolute;
+                        padding-left: 0.9375rem;
+                        top: -2.8125rem;
+                        right: 0.75rem;
+                        color: red;
+                        font-size: 1.2rem;
+                    }
+                    .i-right {
+                        position: absolute;
+                        padding-left: 0.9375rem;
+                        top: -2.8125rem;
+                        right: 0.75rem;
+                        color: green;
+                        font-size: 1.2rem;
+                    }
+                }
+                .i-key {
+                    position: absolute;
+                    padding-left: 0.9375rem;
+                    top: 1.4375rem;
+                }
+                .i-user {
+                    position: absolute;
+                    padding-left: 0.9375rem;
+                    top: 1.4375rem;
+                }
+            }
+            .signin-btn {
+                width: 100%;
+                border-width: 1px solid;
+                border-radius: 0.25rem;
+                padding: 0.75rem 2rem;
+                color: white;
+                background-color: darkblue;
+            }
+        }
+    }
+
+    .social-login{
+        button{
+            width: 100%;
+            background: white;
+            border: 1px solid #C7C7C7;
+            box-sizing: border-box;
+            border-radius: 3.562rem;
+            padding: 0.625rem 1.875rem;
+        }
+    } 
+}
