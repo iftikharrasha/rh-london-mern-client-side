@@ -7,6 +7,7 @@ import Imagination from '../../Components/Imagination/Imagination.js';
 import Collections from '../../Components/Collections/Collections.js';
 import Intro from '../../Components/Intro/Intro.js';
 import Footer from '../../Components/Footer/Footer.js';
+import Reviews from '../../Components/Reviews/Reviews';
 
 const Home = () => {
     return (
@@ -18,6 +19,7 @@ const Home = () => {
             <Features/>
             <Collections/>
             <Imagination/>
+            <Reviews/>
             <Footer/>
         </>
     );

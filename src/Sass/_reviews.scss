@@ -1,0 +1,90 @@
+.reviews{
+    padding: 10rem 0;
+}
+
+.story {
+    width: 75%;
+    margin: 0 auto;
+    background-color: $fc2;
+    border-radius: 3px;
+    padding: 3rem;
+    padding-left: 9rem;
+    transform: skewX(-12deg);
+    @include flexCenter;
+    @media (max-width: 575.98px) {
+        width: 80%;
+        padding: 2rem;
+        padding-left: 0;
+        flex-direction: column;
+        transform: skewX(0);
+    }
+    @media (min-width: 576px) and (max-width: 767.98px) {
+        padding-left: 5rem;
+    }
+    @media (min-width: 768px) and (max-width: 991.98px) {
+        padding: 4rem;
+        padding-left: 7rem;
+    }
+    .story-shape {
+        width: 15rem;
+        height: 15rem;
+        transform: translateX(-3rem) skewX(12deg);
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+        @media (max-width: 575.98px) {
+            transform: translateX(0) skewX(0);
+        }
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            margin-top: 0;
+        }
+
+        .story-img {
+            height: 100%;
+            transform: translateX(0) scale(1.4);
+            backface-visibility: hidden;
+            transition: all .5s;
+        }
+
+        .story-caption {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 20%);
+            color: $fc2;
+            text-transform: uppercase;
+            font-size: 1.7rem;
+            text-align: center;
+            opacity: 0;
+            transition: all .5s;
+            backface-visibility: hidden;
+        }
+    }
+    .story-text {
+        width: 70%;
+        color: $fc5;
+        transform: skewX(12deg);
+        @media (max-width: 575.98px) {
+            transform: skewX(0);
+        }
+        h3{
+            font-weight: bold;
+        }
+        .story-rating{
+            .rating{
+                i{
+                    font-size: 1.25rem;
+                    color: $fc4;
+                }
+            }
+        }
+    }
+    .story:hover &-caption {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+    .story:hover &-img {
+        transform: translateX(-4rem) scale(1);
+        filter: blur(3px) brightness(80%);
+    }
+}

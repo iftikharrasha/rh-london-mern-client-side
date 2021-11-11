@@ -84,21 +84,11 @@ const Collections = () => {
                                     <p>Lorem, ipsum dolor sit amet consectetur. Dolor sit amet consectetur adipisicing. consectetur adipisicing... <Link to="/">READ MORE</Link></p>
                                 </div>
                             </div>
-
-                            {/* <div className="box">
-                                <h6>Asperiose</h6>
-                                <div className="img">
-                                    <img src={collection7} alt={collection7}/>
-                                </div>
-                            </div>
-
-                            <div className="box">
-                                <h6>Asperiose</h6>
-                                <div className="img">
-                                    <img src={collection8} alt={collection8}/>
-                                </div>
-                            </div> */}
                         </div>
+                    </div>
+
+                    <div className="text-center mb-5">
+                        <a href="#" className="btn-1">See all collections</a>
                     </div>
                 </Container>
             </section> 
