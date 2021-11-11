@@ -22,6 +22,8 @@ import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Sass/style.css';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard.js';
+import AllCollections from './Pages/Dashboard/AllCollections/AllCollections.js';
+import AddCollections from './Pages/Dashboard/AddCollections/AddCollections.js';
 
 export const UserContext = createContext();
 
@@ -77,6 +79,12 @@ function App() {
                                 </Route>
                                 <PrivateRoute path="/dashboard">
                                     <Dashboard/>
+                                </PrivateRoute>
+                                <PrivateRoute path="/all-collections">
+                                    <AllCollections/>
+                                </PrivateRoute>
+                                <PrivateRoute path="/add-collections">
+                                    <AddCollections/>
                                 </PrivateRoute>
                                 {/* <Route path="/all-offers">
                                     <Header/>

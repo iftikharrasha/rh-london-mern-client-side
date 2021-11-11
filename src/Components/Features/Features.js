@@ -17,7 +17,7 @@ const Features = () => {
                                 <h2 className="reg-bod-56">Based in the heart of London’s Chelsea borough.</h2>
                                 <div className="text-inner">
                                     <p className="reg-22">Our salon was created by the founders of Richy Hair UK – the global leader in ethical hair extensions – and we pride ourselves on going above and beyond to cater to our guests, allowing them to look and feel like the best version of themselves</p>
-                                    <a href="#" className="btn">Learn More</a>
+                                    <a href="#" className="btn-1">Learn More</a>
                                 </div>
                             </div>
                         </div>
@@ -29,7 +29,7 @@ const Features = () => {
                                 <h2 className="reg-bod-56">City’s most beautiful destination for hair.</h2>
                                 <div className="text-inner">
                                     <p className="reg-22">When you arrive outside the salon, take in the stunning rainforest-inspired display which covers the entire frontage of the three-story town house. Once inside you will be greeted by our team of award-winning celebrity stylists.</p>
-                                    <a href="#" className="btn">Learn More</a>
+                                    <a href="#" className="btn-1">Learn More</a>
                                 </div>
                             </div>
                             <div className="img" data-aos="zoom-out-left">

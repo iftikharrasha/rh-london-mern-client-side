@@ -5,9 +5,7 @@
 @import './features';
 @import './imagination';
 @import './collections';
-@import './offers';
 @import './offerdetails';
-@import './orders';
 @import './placeorder';
 @import './login';
 @import './intro';
@@ -141,7 +139,7 @@ a, select , input , textarea , button{
 }
 
 /* button */
-.btn {
+.btn-1 {
     position: relative;
     display: inline-block;
     color: var(--fc3);

@@ -57,31 +57,31 @@ const AddOffer = () => {
                                 <div className="input-field">
                                     <input className="px-4 py-3 mb-2 text-black border border-transparent rounded lit--14" type="text" ref={titleRef} name="title" placeholder="Enter Offer Title" autoComplete="on" required/>
                                     <div className="input-icon">
-                                        <i class="fa fa-pencil-square-o i-envelope" aria-hidden="true"></i>
+                                        <i className="fa fa-pencil-square-o i-envelope" aria-hidden="true"></i>
                                     </div>
                                 </div>
                                 <div className="input-field my-3">
                                     <input type="text" ref={catRef} className="px-4 py-3 mt-1 mb-2 text-black border border-transparent rounded lit--14" name="cat" placeholder="Enter Category: popular, camping etc." autoComplete="on" required/>
                                     <div className="input-icon">
-                                        <i class="fa fa-pencil-square-o i-key" aria-hidden="true"></i>
+                                        <i className="fa fa-pencil-square-o i-key" aria-hidden="true"></i>
                                     </div>
                                 </div>
                                 <div className="input-field my-3">
                                     <input type="text" ref={imgRef} className="px-4 py-3 mt-1 mb-2 text-black border border-transparent rounded lit--14" name="img" placeholder="Enter Image Link" autoComplete="on" required/>
                                     <div className="input-icon">
-                                        <i class="fa fa-pencil-square-o i-key" aria-hidden="true"></i>
+                                        <i className="fa fa-pencil-square-o i-key" aria-hidden="true"></i>
                                     </div>
                                 </div>
                                 <div className="input-field my-3">
                                     <input type="text" ref={priceRef} className="px-4 py-3 mt-1 mb-2 text-black border border-transparent rounded lit--14" name="price" placeholder="Enter Offer Starting Price" autoComplete="on" required/>
                                     <div className="input-icon">
-                                        <i class="fa fa-pencil-square-o i-key" aria-hidden="true"></i>
+                                        <i className="fa fa-pencil-square-o i-key" aria-hidden="true"></i>
                                     </div>
                                 </div>
                                 <div className="input-field my-3">
                                     <textarea rows="4" cols="40" ref={descRef} className="px-4 py-3 mt-1 mb-2 text-black border border-transparent rounded lit--14" name="desc" placeholder="Enter Offer Description" autoComplete="on" required></textarea>
                                     <div className="input-icon">
-                                        <i class="fa fa-pencil-square-o i-key" aria-hidden="true"></i>
+                                        <i className="fa fa-pencil-square-o i-key" aria-hidden="true"></i>
                                     </div>
                                 </div>
                             </div>

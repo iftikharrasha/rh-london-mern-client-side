@@ -13,7 +13,7 @@
     background-color: var(--fc2);
     z-index: 999;
     transition: all .4s ease;
-    @media (max-width: 575.98px) {
+    @media (max-width: 991.98px){
         position: relative;
         max-width: 100%;
         min-height: auto;
@@ -21,12 +21,22 @@
     }
     .nav-item{
         border-bottom: 1px solid var(--fc5);
-        a{
+        a, span{
             font-size: 1.2rem;
             color: var(--fc5);
             &:hover{
                 font-weight: 700;
             }
+        }
+        button{
+            padding: 0;
+        }
+        .dropdown-menu{
+            position: relative !important;
+            transform: none !important;
+            background-color: transparent;
+            padding: 0;
+            border: none;
         }
     }
 }
