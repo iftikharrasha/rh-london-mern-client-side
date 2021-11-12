@@ -24,6 +24,7 @@ import './Sass/style.css';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard.js';
 import AllCollections from './Pages/Dashboard/AllCollections/AllCollections.js';
 import AddCollections from './Pages/Dashboard/AddCollections/AddCollections.js';
+import ExploreAll from './Pages/ExploreAll/ExploreAll.js';
 
 export const UserContext = createContext();
 
@@ -76,6 +77,9 @@ function App() {
                                 </Route>
                                 <Route path="/signup">
                                     <Signup/>
+                                </Route>
+                                <Route path="/explore">
+                                    <ExploreAll/>
                                 </Route>
                                 <PrivateRoute path="/dashboard">
                                     <Dashboard/>

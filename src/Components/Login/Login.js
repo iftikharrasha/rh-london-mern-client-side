@@ -88,28 +88,27 @@ const Login = () => {
     }
 
     //form validation part
-    const handleBlur = (event) => {
-        // console.log(event.target.name, event.target.value);
-
+    const handleOnChange = (event) => {
+        const field = event.target.name;
+        const value = event.target.value;
         let isFormValid;
-        if(event.target.name === 'email'){
+
+        if(field === 'email'){
             const regexEm = /\S+@\S+\.\S+/;
-            isFormValid = regexEm.test(event.target.value);
-            // console.log(isFormValid);
+            isFormValid = regexEm.test(value);
         }
       
-        if(event.target.name === 'password'){
+        if(field === 'password'){
             const regexPass = /\d{1}/;
-            const isPassNumber = regexPass.test(event.target.value);
-            const isPassLength = event.target.value.length > 6;
+            const isPassNumber = regexPass.test(value);
+            const isPassLength = value.length > 6;
       
             isFormValid = isPassLength && isPassNumber;
-            // console.log(isFormValid);
         }
           
         if(isFormValid){
             const newUserInfo = {...loggedInUser};
-            newUserInfo[event.target.name] = event.target.value;
+            newUserInfo[field] = value;
             setLoggedInUser(newUserInfo);
             localStorage.setItem('uname', newUserInfo.email);
         }
@@ -119,8 +118,10 @@ const Login = () => {
         <>
             <section className="login">
                 <div className="text-center mb-3">
-                    <p style={{color: 'red'}}>{loggedInUser.error}</p>
-                    { loggedInUser.success && <p>Account Created Successfully!</p> }
+                    {
+                        loggedInUser.error  ?  <p style={{color: 'red'}}> Please Create an account first!</p>
+                                            :  <p>Account Created Successfully!</p>
+                    }
                 </div>
                 <div className="d-flex align-items-center justify-content-center">
                     <div className="login-form bg-tag-1">
@@ -131,13 +132,13 @@ const Login = () => {
                         <form className="form" onSubmit={handleNormalAuth}>
                             <div className="inputs my-4">
                                 <div className="input-field">
-                                    <input className="px-4 py-3 mb-2 text-black border border-transparent rounded lit--14" type="text" name="email" onChange={handleBlur} placeholder="Enter Email" autoComplete="on" required/>
+                                    <input className="px-4 py-3 mb-2 text-black border border-transparent rounded lit--14" type="text" name="email" onChange={handleOnChange} placeholder="Enter Email" autoComplete="on" required/>
                                     <div className="input-icon">
                                         <i className="fa fa-envelope i-envelope" aria-hidden="true"></i>
                                     </div>
                                 </div>
                                 <div className="input-field my-3">
-                                    <input type="password" className="px-4 py-3 mt-1 mb-2 text-black border border-transparent rounded lit--14" name="password" onChange={handleBlur} placeholder="Enter Password" autoComplete="on" required/>
+                                    <input type="password" className="px-4 py-3 mt-1 mb-2 text-black border border-transparent rounded lit--14" name="password" onChange={handleOnChange} placeholder="Enter Password" autoComplete="on" required/>
                                     <div className="input-icon">
                                         <i className="fa fa-key i-key" aria-hidden="true"></i>
                                     </div>

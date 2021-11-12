@@ -1,4 +1,4 @@
-.collection {
+.collection, .explore {
     background-color: var(--fc5);
     padding: 10rem 0;
     h2 {
@@ -40,6 +40,7 @@
                 opacity: .4;
                 transition: all 1s ease-in-out;
                 img {
+                    width: 15rem;
                     height: 25rem;
                     object-fit: cover;
                     padding-top: 3rem;

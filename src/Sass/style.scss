@@ -2,6 +2,7 @@
 @import './header';
 @import './hero';
 @import './mediapartners';
+@import './intro';
 @import './features';
 @import './imagination';
 @import './collections';
@@ -9,12 +10,13 @@
 @import './offerdetails';
 @import './placeorder';
 @import './login';
-@import './intro';
 @import './footer';
 @import './notfound';
-@import './pagination';
 @import './sidebar';
 @import './contents';
+
+
+@import './pagination';
 
 * {
     margin: 0;

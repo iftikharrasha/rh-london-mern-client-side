@@ -1,0 +1,26 @@
+[
+    {
+        "No": 1,
+        "author": "Shobna Gulati",
+        "title": "Actress, Presenter, Writer",
+        "desc": "I would describe my experiences at RH London on Walton Street, as time very well spent. My concerns and desires for how I want my hair and face to look always listened to. I completely love sitting in the chair with Melinda she is an expert colourist and Vincent always makes my hair look wonderful for a special occasion “ do”, Armand a total talent in creating my overall look and helping my confidence soar. A place where I am comfortable, feel safe and well looked after. It’s definitely a 5-star visit treat for me when I’m in London.",
+        "rating": 5,
+        "img": "https://i.ibb.co/DY3RgDD/review1.webp"
+    },
+    {
+        "No": 2,
+        "author": "Clair Charles",
+        "title": "Eloise St. - Made In Chelsea",
+        "desc": "RH London is hands down the best salon I’ve visited. Each staff member is unbelievably talented and they are so attentive and professional. More importantly, they are such a genuine and fun team, I would spend all day chatting away with them if I could! I’ve never been happier with my hair and the chilled vibe makes for the best experience. I would highly recommend!",
+        "rating": 4.7,
+        "img": "https://i.ibb.co/6vnr5zD/review2.webp"
+    },
+    {
+        "No": 3,
+        "author": "April Bandbury",
+        "title": "Ms. Great Britain 2020/21",
+        "desc": "The best service. So grateful to Daniel for transforming my box dyed lockdown hair. Beyond happy with the result. A beautiful salon and a wonderful experience. Can’t wait to return.",
+        "rating": 4.5,
+        "img": "https://i.ibb.co/pxJSZK1/review3.webp"
+    }
+]

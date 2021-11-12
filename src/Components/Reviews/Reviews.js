@@ -1,10 +1,13 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import client1 from '../../img/7.jpg';
 import { Link } from 'react-router-dom';
+import ReactStars from "react-rating-stars-component";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
+import review1 from '../../img/review1.webp';
+import review2 from '../../img/review2.webp';
+import review3 from '../../img/review3.webp';
 
 const Reviews = () => {
     var settings = {
@@ -13,7 +16,7 @@ const Reviews = () => {
         dots: false,
         arrows: false,
         infinite: true,
-        autoplay: true,
+        autoplay: false,
         autoplaySpeed: 3000,
         speed: 700,
         responsive: [
@@ -38,6 +41,22 @@ const Reviews = () => {
         ],
     };
 
+    const ratingCount = {
+        size: 0,
+        count: 5,
+        color: "black",
+        activeColor: "red",
+        value: 4.5,
+        a11y: true,
+        isHalf: true,
+        emptyIcon: <i className="far fa-star" />,
+        halfIcon: <i className="fa fa-star-half-alt" />,
+        filledIcon: <i className="fa fa-star" />,
+        onChange: newValue => {
+          console.log(`Example 2: new value is ${newValue}`);
+        }
+    };
+
     return (
         <>
             <section className="reviews">
@@ -54,7 +73,7 @@ const Reviews = () => {
                             <div className="row">
                                 <div className="story">
                                     <figure className="story-shape">
-                                        <img src={client1} className="story-img" alt={client1}/>
+                                        <img src={review1} className="story-img" alt={review1}/>
                                         <figcaption className="story-caption">Mary Smith</figcaption>
                                     </figure>
                                     <div className="story-text">
@@ -67,13 +86,7 @@ const Reviews = () => {
                                             voluptate adipisci eius veniam. Tempora, laborum eos.
                                         </p>
                                         <div className="story-rating">
-                                            <span className="rating">
-                                                <i className="fas fa-star"></i>
-                                                <i className="fas fa-star"></i>
-                                                <i className="fas fa-star"></i>
-                                                <i className="fas fa-star"></i>
-                                                <i className="fas fa-star-half-alt"></i>
-                                            </span>
+                                            <ReactStars {...ratingCount} />
                                         </div>
                                     </div>
                                 </div>
@@ -82,7 +95,7 @@ const Reviews = () => {
                             <div className="row">
                                 <div className="story">
                                     <figure className="story-shape">
-                                        <img src={client1} className="story-img" alt={client1}/>
+                                        <img src={review2} className="story-img" alt={review2}/>
                                         <figcaption className="story-caption">Mary Smith</figcaption>
                                     </figure>
                                     <div className="story-text">
@@ -95,13 +108,7 @@ const Reviews = () => {
                                             voluptate adipisci eius veniam. Tempora, laborum eos.
                                         </p>
                                         <div className="story-rating">
-                                            <span className="rating">
-                                                <i className="fas fa-star"></i>
-                                                <i className="fas fa-star"></i>
-                                                <i className="fas fa-star"></i>
-                                                <i className="fas fa-star"></i>
-                                                <i className="fas fa-star-half-alt"></i>
-                                            </span>
+                                            <ReactStars {...ratingCount} />
                                         </div>
                                     </div>
                                 </div>
@@ -110,7 +117,7 @@ const Reviews = () => {
                             <div className="row">
                                 <div className="story">
                                     <figure className="story-shape">
-                                        <img src={client1} className="story-img" alt={client1}/>
+                                        <img src={review3} className="story-img" alt={review3}/>
                                         <figcaption className="story-caption">Mary Smith</figcaption>
                                     </figure>
                                     <div className="story-text">
@@ -123,13 +130,7 @@ const Reviews = () => {
                                             voluptate adipisci eius veniam. Tempora, laborum eos.
                                         </p>
                                         <div className="story-rating">
-                                            <span className="rating">
-                                                <i className="fas fa-star"></i>
-                                                <i className="fas fa-star"></i>
-                                                <i className="fas fa-star"></i>
-                                                <i className="fas fa-star"></i>
-                                                <i className="fas fa-star-half-alt"></i>
-                                            </span>
+                                            <ReactStars {...ratingCount} />
                                         </div>
                                     </div>
                                 </div>
