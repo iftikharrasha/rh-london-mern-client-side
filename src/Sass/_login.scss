@@ -63,6 +63,13 @@
                 color: var(--fc3);
                 background-color: var(--fc5);
             }
+            .below{
+                color: var(--fc5) !important;
+                a{
+                    font-weight: 700;
+                    color: var(--fc5) !important;
+                }
+            }
         }
     }
     .social-login{
@@ -78,4 +85,10 @@
             }
         }
     } 
+}
+
+.signup{
+    .login-form{
+        min-height: 34.5rem;
+    }
 }

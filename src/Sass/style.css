@@ -1124,6 +1124,15 @@
   background-color: var(--fc5);
 }
 
+.login .login-form .form .below {
+  color: var(--fc5) !important;
+}
+
+.login .login-form .form .below a {
+  font-weight: 700;
+  color: var(--fc5) !important;
+}
+
 .login .social-login button {
   width: 40%;
   background: var(--fc3);
@@ -1138,6 +1147,10 @@
   .login .social-login button {
     width: 100%;
   }
+}
+
+.signup .login-form {
+  min-height: 34.5rem;
 }
 
 .footer {

@@ -1,47 +1,25 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import firebase from "firebase/compat/app";
 import logo from '../../img/logo.png';
 import logout from '../../img/logout.svg';
-
-import {UserContext} from "../../App";
+import useAuth from '../../hooks/useAuth';
 
 const Header = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const { loggedInUser, logoutUser } = useAuth();
 
-    const handleSignOut = () => {
-        firebase.auth().signOut()
-        .then((res) => {
-          localStorage.removeItem('token');
-          localStorage.removeItem('uid');
-          localStorage.removeItem('uname');
-          const signedOutUser = {
-            isSignedIn: false,
-            name: '',
-            email: '',
-            photo: '',
-            tokenId: '',
-            success: false,
-            error: ''
-          }
-          setLoggedInUser(signedOutUser);
-        }).catch((error) => {
-            console.log(error);
-        });
-      }
+    const [scroll, setScroll] = useState(false);
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+            const scrollHeight = window.scrollY;
+            setScroll(scrollHeight > 50);
+        })
+    }, []);
 
-        const [scroll, setScroll] = useState(false);
-        useEffect(() => {
-            window.addEventListener('scroll', () => {
-                const scrollHeight = window.scrollY;
-                setScroll(scrollHeight > 50);
-            })
-        }, []);
-
-        const activeToggle = e => {
-            document.getElementById('header').classList.toggle('open');
-            e.preventDefault();
-        }
+    const activeToggle = e => {
+        document.getElementById('header').classList.toggle('open');
+        e.preventDefault();
+    }
 
     return (
         <>
@@ -73,7 +51,7 @@ const Header = () => {
                                                                 </Link>
                                                             </li>
                                                             <li><Link to="/dashboard">Dashboard</Link></li>
-                                                            <li><Link to="/" onClick={handleSignOut}>Logout <img src={logout} alt={logout} className="img-fluid ml-2"/></Link></li>
+                                                            <li><Link to="/" onClick={logoutUser}>Logout <img src={logout} alt={logout} className="img-fluid ml-2"/></Link></li>
                                                         </ul>
 
                                                     :   <ul>
@@ -105,7 +83,7 @@ const Header = () => {
                                                                 </Link>
                                                             </li>
                                                             <li><Link to="/dashboard">Dashboard</Link></li>
-                                                            <li><Link to="/" onClick={handleSignOut}>Logout</Link></li>
+                                                            <li><Link to="/" onClick={logoutUser}>Logout</Link></li>
                                                         </ul>
                                                         
                                                     :   <ul>

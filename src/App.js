@@ -7,7 +7,7 @@ import {
 import jwt_decode from "jwt-decode";
 import ScrollToTop from './ScrollToTop.js';
 import Home from './Pages/Home/Home.js';
-import Singin from './Pages/Singin/Singin.js';
+import Signin from './Pages/Signin/Signin/Signin.js';
 import Signup from './Pages/Signup/Signup.js';
 import NotFound from './Pages/NotFound/NotFound.js';
 
@@ -25,43 +25,44 @@ import Dashboard from './Pages/Dashboard/Dashboard/Dashboard.js';
 import AllCollections from './Pages/Dashboard/AllCollections/AllCollections.js';
 import AddCollections from './Pages/Dashboard/AddCollections/AddCollections.js';
 import ExploreAll from './Pages/ExploreAll/ExploreAll.js';
+import AuthProvider from './contexts/AuthProvider/AuthProvider.js';
 
-export const UserContext = createContext();
+// export const UserContext = createContext(); //from authprovider
 
 function App() {
-    const getDecodedUser = () => {
-        const token = localStorage.getItem('token');
-        if (!token) {
-            return {
-                isSignedIn: false,
-                name: '',
-                email: '',
-                photo: '',
-                tokenId: '',
-                success: false,
-                error: ''
-            };
-        }
-        const {name, email, picture} = jwt_decode(token);
-        const uidDecoded = localStorage.getItem('uid');
-        const unameDecoded = localStorage.getItem('uname');
-        const decodedUser = {
-            isSignedIn: true,
-            email: email,
-            photo: picture,
-            tokenId: uidDecoded || unameDecoded,
-            success: true,
-            name: (name.split(' '))[0]
-        }
-        return decodedUser;
-    }
+    // const getDecodedUser = () => {
+    //     const token = localStorage.getItem('token');
+    //     if (!token) {
+    //         return {
+    //             isSignedIn: false,
+    //             name: '',
+    //             email: '',
+    //             photo: '',
+    //             tokenId: '',
+    //             success: false,
+    //             error: ''
+    //         };
+    //     }
+    //     const {name, email, picture} = jwt_decode(token);
+    //     const uidDecoded = localStorage.getItem('uid');
+    //     const unameDecoded = localStorage.getItem('uname');
+    //     const decodedUser = {
+    //         isSignedIn: true,
+    //         email: email,
+    //         photo: picture,
+    //         tokenId: uidDecoded || unameDecoded,
+    //         success: true,
+    //         name: (name.split(' '))[0]
+    //     }
+    //     return decodedUser;
+    // }
 
-    const [loggedInUser, setLoggedInUser] = useState(getDecodedUser());
+    // const [loggedInUser, setLoggedInUser] = useState(getDecodedUser());
 
     return (
         <div className="App">
 
-            <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+            <AuthProvider>
                 <Router>
                     <ScrollToTop>
                         <Route render={({location}) => (
@@ -73,7 +74,7 @@ function App() {
                                     <Home/>
                                 </Route>
                                 <Route path="/login">
-                                    <Singin/>
+                                    <Signin/>
                                 </Route>
                                 <Route path="/signup">
                                     <Signup/>
@@ -122,7 +123,7 @@ function App() {
                         )} />
                     </ScrollToTop>
                 </Router>
-            </UserContext.Provider>
+            </AuthProvider>
 
         </div>
     );
