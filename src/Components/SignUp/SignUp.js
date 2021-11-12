@@ -20,17 +20,21 @@ const SignUp = () => {
     }
 
     const handleNormalAuth = (event) => {
-        if(newUser && loginData.email && loginData.password){
-            registerUser(loginData.email, loginData.password, loginData.name, history);
+        if(newUser && loginData.email && loginData.password && loginData.name){
+            registerUser(loginData.email, loginData.password, loginData.name, location, history);
         }
         event.preventDefault();
     }
 
     //form validation part
-    const handleOnChange = (event) => {
+    const handleOnBlur = (event) => {
         const field = event.target.name;
         const value = event.target.value;
         let isFormValid;
+
+        if(field === 'name'){
+            isFormValid = true;
+        }
 
         if(field === 'email'){
             const regexEm = /\S+@\S+\.\S+/;
@@ -105,14 +109,14 @@ const SignUp = () => {
                             !isLoading && <form className="form" onSubmit={handleNormalAuth}>
                                             <div className="inputs my-4">
                                                 <div className="input-field">
-                                                    <input className="px-4 py-3 mb-2 text-black border border-transparent rounded lit-14" type="text" name="name" onChange={handleOnChange} placeholder="Enter Your name" autoComplete="on" required/>
+                                                    <input className="px-4 py-3 mb-2 text-black border border-transparent rounded lit-14" type="text" name="name" onBlur={handleOnBlur} placeholder="Enter Your name" autoComplete="on" required/>
                                                     <div className="input-icon">
                                                         <i className="fa fa-user-plus i-envelope" aria-hidden="true"></i>
                                                     </div>
 
                                                 </div>
                                                 <div className="input-field my-3">
-                                                    <input type="email" className="px-4 py-3 mt-1 mb-2 text-black border border-transparent rounded lit-14" name="email" onChange={handleOnChange} placeholder="Enter Your email" autoComplete="on" required/>
+                                                    <input type="email" className="px-4 py-3 mt-1 mb-2 text-black border border-transparent rounded lit-14" name="email" onBlur={handleOnBlur} placeholder="Enter Your email" autoComplete="on" required/>
                                                     <div className="input-icon">
                                                         <i className="fa fa-envelope i-user" aria-hidden="true"></i>
                                                     </div>
@@ -120,7 +124,7 @@ const SignUp = () => {
                                                     <div className="input-field" id="valid-icon-email"></div>
                                                 </div>
                                                 <div className="input-field my-3">
-                                                    <input type="password" className="px-4 py-3 mt-1 mb-2 text-black border border-transparent rounded lit-14" name="password" onChange={handleOnChange} placeholder="Enter Password" autoComplete="on" required/>
+                                                    <input type="password" className="px-4 py-3 mt-1 mb-2 text-black border border-transparent rounded lit-14" name="password" onBlur={handleOnBlur} placeholder="Enter Password" autoComplete="on" required/>
                                                     <div className="input-icon">
                                                         <i className="fa fa-key i-key" aria-hidden="true"></i>
                                                     </div>

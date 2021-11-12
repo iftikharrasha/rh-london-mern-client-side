@@ -6,91 +6,27 @@ import google from '../../img/google.svg';
 import preloader from '../../img/preloader.gif';
 import useAuth from '../../hooks/useAuth';
 
-// import firebase from "firebase/compat/app";
-// import "firebase/compat/auth";
-// import firebaseConfig from "../../Pages/Signin/Firebase/firebase.config";
-
-// import {UserContext} from "../../App";
-
-// if(firebase.apps.length === 0){
-//     firebase.initializeApp(firebaseConfig);
-// }else{
-//     firebase.app();
-// }
-
 const Login = () => {
     const [loginData, setLoginData] = useState({});
-    const { loggedInUser, loginUser, isLoading } = useAuth();
-    const [newUser, setNewUser] = useState(false);
-
-    // const provider = new firebase.auth.GoogleAuthProvider();
+    const { loggedInUser, loginUser, isLoading, signInWithGoogle, authError } = useAuth();
+    // const [newUser, setNewUser] = useState(false);
 
     const history = useHistory();
     const location = useLocation();
-    const { from } = location.state || { from: { pathname: "/" } };
 
     const handleGoogleSignIn = () => {
-    // firebase.auth()
-    //     .signInWithPopup(provider)
-    //     .then((result) => {
-    //         const user = result.user;
-    //         const {displayName, email, photoURL, uid} = user;
-    //         console.log(user);
-    //         const signedInUser = {
-    //             isSignedIn: true,
-    //             email: email,
-    //             photo: photoURL,
-    //             tokenId: uid,
-    //             success: true,
-    //             name: (displayName.split(' '))[0]
-    //         };
-
-    //         setLoginData(signedInUser);
-    //         localStorage.setItem('uid', signedInUser.tokenId);
-    //         setUserToken();
-    //         history.replace(from);
-    //     }).catch((error) => {
-    //         const errorMessage = error.message;
-    //         console.log(errorMessage);
-    //     });
+        signInWithGoogle(location, history);
     }
 
-    // const setUserToken = () => {
-    //     firebase.auth().currentUser.getIdToken(true).then(function(idToken) {
-    //         localStorage.setItem('token', idToken);
-    //     }).catch((error) => {
-    //         console.log(error);
-    //     });
-    // }
-
     const handleNormalAuth = (event) => {
-        if(!newUser && loginData.email && loginData.password){
+        if(loginData.email && loginData.password){
             loginUser(loginData.email, loginData.password, location, history);
-
-            // firebase.auth().signInWithEmailAndPassword(loggedInUser.email, loggedInUser.password)
-            //   .then((res) => {
-            //     const newUserInfo = {...loggedInUser};
-            //     newUserInfo.error = '';
-            //     newUserInfo.isSignedIn = true;
-            //     newUserInfo.success = true;
-            //     newUserInfo.photo = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6XZtZr6e_zPRkbWX6o9S-KeNbUbzgw9qWDA&usqp=CAU';
-            //     newUserInfo.name = 'John Doe';
-
-            //     setLoginData(newUserInfo);
-            //     history.replace(from);=
-            //   })
-            //   .catch((error) => {
-            //     const newUserInfo = {...loggedInUser};
-            //     newUserInfo.error = error.message;
-            //     newUserInfo.success = false;
-            //     setLoginData(newUserInfo);
-            //   });
         }
         event.preventDefault();
     }
 
     //form validation part
-    const handleOnChange = (event) => {
+    const handleOnBlur = (event) => {
         const field = event.target.name;
         const value = event.target.value;
         let isFormValid;
@@ -121,10 +57,10 @@ const Login = () => {
             <section className="login">
                 <div className="text-center mb-3">
                     {
-                        loggedInUser.error && <p style={{color: 'red'}}> Please Create an account first!</p>
+                        authError && <p style={{color: 'red'}}> Please Create an account first!</p>
                     }
                     {
-                        loggedInUser.success && <p>Account Created Successfully!</p>
+                        loggedInUser.success && <p>Account Created Successfully, Please Login!</p>
                     }
                 </div>
                 <div className="d-flex align-items-center justify-content-center">
@@ -139,13 +75,13 @@ const Login = () => {
                         !isLoading &&  <form className="form" onSubmit={handleNormalAuth}>
                                             <div className="inputs my-4">
                                                 <div className="input-field">
-                                                    <input className="px-4 py-3 mb-2 text-black border border-transparent rounded lit--14" type="text" name="email" onChange={handleOnChange} placeholder="Enter Email" autoComplete="on" required/>
+                                                    <input className="px-4 py-3 mb-2 text-black border border-transparent rounded lit--14" type="text" name="email" onBlur={handleOnBlur} placeholder="Enter Email" autoComplete="on" required/>
                                                     <div className="input-icon">
                                                         <i className="fa fa-envelope i-envelope" aria-hidden="true"></i>
                                                     </div>
                                                 </div>
                                                 <div className="input-field my-3">
-                                                    <input type="password" className="px-4 py-3 mt-1 mb-2 text-black border border-transparent rounded lit--14" name="password" onChange={handleOnChange} placeholder="Enter Password" autoComplete="on" required/>
+                                                    <input type="password" className="px-4 py-3 mt-1 mb-2 text-black border border-transparent rounded lit--14" name="password" onBlur={handleOnBlur} placeholder="Enter Password" autoComplete="on" required/>
                                                     <div className="input-icon">
                                                         <i className="fa fa-key i-key" aria-hidden="true"></i>
                                                     </div>

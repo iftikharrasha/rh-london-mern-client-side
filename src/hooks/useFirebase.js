@@ -1,58 +1,60 @@
 import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 import initializeFirebase from "../Pages/Signin/Firebase/firebase.init";
-import { getAuth, createUserWithEmailAndPassword, signOut, onAuthStateChanged, getIdToken, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signOut, onAuthStateChanged, getIdToken, signInWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 initializeFirebase();
 const useFirebase = () => {
-    const getDecodedUser = () => {
-        const token = localStorage.getItem('token');
-        if (!token) {
-            return {
-                isSignedIn: false,
-                name: '',
-                email: '',
-                photo: '',
-                tokenId: '',
-                success: false,
-                error: ''
-            };
-        }
-        const {name, email, picture} = jwt_decode(token);
-        const uidDecoded = localStorage.getItem('uid');
-        const unameDecoded = localStorage.getItem('uname');
-        const decodedUser = {
-            isSignedIn: true,
-            email: email,
-            photo: picture,
-            tokenId: uidDecoded || unameDecoded,
-            success: true,
-            name: (name.split(' '))[0]
-        }
-        return decodedUser;
-    }
+    // const getDecodedUser = () => {
+    //     const token = localStorage.getItem('token');
+    //     if (!token) {
+    //         return {
+    //             isSignedIn: false,
+    //             name: '',
+    //             email: '',
+    //             photo: '',
+    //             success: false,
+    //             error: ''
+    //         };
+    //     }
+    //     const {name, email, picture} = jwt_decode(token);
+    //     const decodedUser = {
+    //         isSignedIn: true,
+    //         email: email,
+    //         photo: picture,
+    //         success: true,
+    //         name: (name.split(' '))[0]
+    //     }
+    //     return decodedUser;
+    // }
 
-    const [loggedInUser, setLoggedInUser] = useState(getDecodedUser());
-    const [token, setToken] = useState('');
+    const [loggedInUser, setLoggedInUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+    const [authError, setAuthError] = useState('');
+    const [token, setToken] = useState('');
 
     const auth = getAuth();
+    const googleProvider = new GoogleAuthProvider();
 
-    const registerUser = (email, password, name, history) => {
+    const registerUser = (email, password, name, location, history) => {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
               .then((res) => { 
-                    const newUserInfo = {...loggedInUser};
-                    newUserInfo.error = '';
-                    newUserInfo.success = true;
+                    setAuthError('');
+                    const newUserInfo = { email, displayName: name, success: true };
                     setLoggedInUser(newUserInfo);
-                    history.replace('/');
+                    // send name to firebase after creation
+                    updateProfile(auth.currentUser, {
+                        displayName: name,
+                        photoURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6XZtZr6e_zPRkbWX6o9S-KeNbUbzgw9qWDA&usqp=CAU'
+                    }).then(() => {
+                    }).catch((error) => {
+                    });
+                    const destination = location?.state?.from || '/login';
+                    history.replace(destination);
               })
               .catch((error) => {
-                    const newUserInfo = {...loggedInUser};
-                    newUserInfo.error = error.message;
-                    newUserInfo.success = false;
-                    setLoggedInUser(newUserInfo);
+                    setAuthError(error.message);
               })
               .finally(() => setIsLoading(false));
     }
@@ -61,36 +63,77 @@ const useFirebase = () => {
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((res) => {
-                const newUserInfo = {...loggedInUser};
-                newUserInfo.error = '';
-                newUserInfo.isSignedIn = true;
-                newUserInfo.success = true;
-                newUserInfo.photo = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6XZtZr6e_zPRkbWX6o9S-KeNbUbzgw9qWDA&usqp=CAU';
-                newUserInfo.name = 'John Doe';
-
-                setLoggedInUser(newUserInfo);
+                console.log(res.user);
+                const user = res.user;
+                const {displayName, email, accessToken} = user;
+                localStorage.setItem('token', accessToken);
+                setAuthError('');
+                const signedInUser = {
+                    isSignedIn: true,
+                    email: email,
+                    photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6XZtZr6e_zPRkbWX6o9S-KeNbUbzgw9qWDA&usqp=CAU',
+                    success: true,
+                    name: (displayName.split(' '))[0]
+                };
+                setLoggedInUser(signedInUser);
+                // setUserToken();
+                // send name to firebase after creation
                 const destination = location?.state?.from || '/';
                 history.replace(destination);
-                // console.log('Signed in user info', loggedInUser);
             })
             .catch((error) => {
-                const newUserInfo = {...loggedInUser};
-                newUserInfo.error = error.message;
-                newUserInfo.success = false;
-                setLoggedInUser(newUserInfo);
+                setAuthError(error.message);
             })
             .finally(() => setIsLoading(false));
     }
 
+    const signInWithGoogle = (location, history) => {
+        setIsLoading(true);
+        signInWithPopup(auth, googleProvider)
+        .then((result) => {
+                const user = result.user;
+                const {displayName, email, photoURL, accessToken} = user;
+                localStorage.setItem('token', accessToken);
+                setAuthError('');
+                const signedInUser = {
+                    isSignedIn: true,
+                    email: email,
+                    photo: photoURL,
+                    success: true,
+                    name: (displayName.split(' '))[0]
+                };
+                // setAuthToken();
+                setLoggedInUser(signedInUser);
+                const destination = location?.state?.from || '/';
+                history.replace(destination);
+            }).catch((error) => {
+                setAuthError(error.message);
+            })
+            .finally(() => setIsLoading(false));
+    }
+
+    // const setAuthToken = () => {
+    //     getIdToken(true).then(function(idToken) {
+    //         localStorage.setItem('token', idToken);
+    //     }).catch((error) => {
+    //         console.log(error);
+    //     });
+    // }
+
     // observer user state
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, (loggedInUser) => {
-            if (loggedInUser) {
-                setLoggedInUser(loggedInUser);
-                getIdToken(loggedInUser)
-                    .then(idToken => {
-                        setToken(idToken);
-                    })
+            const token = localStorage.getItem('token');
+            if(token) {
+                const {name, email, picture} = jwt_decode(token);
+                const decodedUser = {
+                    isSignedIn: true,
+                    email: email,
+                    photo: picture,
+                    success: true,
+                    name: (name.split(' '))[0]
+                }
+                setLoggedInUser(decodedUser);
             } else {
                 setLoggedInUser({})
             }
@@ -103,18 +146,7 @@ const useFirebase = () => {
         setIsLoading(true);
         signOut(auth).then((res) => {
             localStorage.removeItem('token');
-            localStorage.removeItem('uid');
-            localStorage.removeItem('uname');
-            const signedOutUser = {
-                isSignedIn: false,
-                name: '',
-                email: '',
-                photo: '',
-                tokenId: '',
-                success: false,
-                error: ''
-              }
-              setLoggedInUser(signedOutUser);
+            setLoggedInUser({})
         }).catch((error) => {
             console.log(error);
         })
@@ -123,10 +155,13 @@ const useFirebase = () => {
 
     return {
         isLoading,
+        token,
         loggedInUser,
         registerUser,
         loginUser,
         logoutUser,
+        signInWithGoogle,
+        authError,
     }
 }
 

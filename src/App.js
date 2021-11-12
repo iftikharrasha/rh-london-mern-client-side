@@ -30,35 +30,6 @@ import AuthProvider from './contexts/AuthProvider/AuthProvider.js';
 // export const UserContext = createContext(); //from authprovider
 
 function App() {
-    // const getDecodedUser = () => {
-    //     const token = localStorage.getItem('token');
-    //     if (!token) {
-    //         return {
-    //             isSignedIn: false,
-    //             name: '',
-    //             email: '',
-    //             photo: '',
-    //             tokenId: '',
-    //             success: false,
-    //             error: ''
-    //         };
-    //     }
-    //     const {name, email, picture} = jwt_decode(token);
-    //     const uidDecoded = localStorage.getItem('uid');
-    //     const unameDecoded = localStorage.getItem('uname');
-    //     const decodedUser = {
-    //         isSignedIn: true,
-    //         email: email,
-    //         photo: picture,
-    //         tokenId: uidDecoded || unameDecoded,
-    //         success: true,
-    //         name: (name.split(' '))[0]
-    //     }
-    //     return decodedUser;
-    // }
-
-    // const [loggedInUser, setLoggedInUser] = useState(getDecodedUser());
-
     return (
         <div className="App">
 
