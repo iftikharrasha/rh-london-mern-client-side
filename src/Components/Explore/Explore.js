@@ -6,10 +6,10 @@ const Explore = () => {
     const [collections, setCollections] = useState([]);
     const [page, setPage] = useState(0);
     const [pageCount, setPageCount] = useState(0);
-    const size = 3;
+    const size = 9;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/collections?page=${page}&&size=${size}`)
+        fetch(`https://thawing-inlet-67169.herokuapp.com/collections?page=${page}&&size=${size}`)
         .then(res => res.json())
         .then(data => {
             setCollections(data.collections);
@@ -51,7 +51,7 @@ const Explore = () => {
                                     {
                                         
                                         [...Array(pageCount).keys()].map(number => (
-                                            <li className={`page-item pageNumber ${number === page ? "active" : ''}`}>
+                                            <li className={`page-item pageNumber ${number === page ? "active" : ''}`} key={number+1}>
                                                 <a className="page-link" onClick={() => setPage(number)}>{number+1}</a>
                                             </li>
                                         ))

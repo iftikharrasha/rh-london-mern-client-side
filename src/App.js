@@ -16,8 +16,6 @@ import AllCollections from './Pages/Dashboard/AllCollections/AllCollections.js';
 import AddCollections from './Pages/Dashboard/AddCollections/AddCollections.js';
 import ManageOrders from './Pages/Dashboard/ManageOrders/ManageOrders.js';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './Sass/style.css';
 import AuthProvider from './contexts/AuthProvider/AuthProvider.js';
 import AllReviews from './Pages/Dashboard/AllReviews/AllReviews.js';
 import AddReviews from './Pages/Dashboard/AddReviews/AddReviews.js';
@@ -26,8 +24,8 @@ import AllUsers from './Pages/Dashboard/AllUsers/AllUsers.js';
 import PayNow from './Pages/Dashboard/PayNow/PayNow.js';
 import SingleOrders from './Pages/Dashboard/SingleOrders/SingleOrders.js';
 import AdminRoute from './Pages/AdminRoute/AdminRoute.js';
-
-// export const UserContext = createContext(); //from authprovider
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './Sass/style.css';
 
 function App() {
     return (

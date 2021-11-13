@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 const UsersTable = () => {
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/all-users')
+        fetch('https://thawing-inlet-67169.herokuapp.com/all-users')
         .then(res => res.json())
         .then(data => setUsers(data));
     }, [])
@@ -13,7 +13,7 @@ const UsersTable = () => {
     const handleDeleteUser = id => {
         const proceed = window.confirm('Are you sure you want to delete this order?');
         if(proceed) {
-            const url = `http://localhost:5000/delete-user/${id}`;
+            const url = `https://thawing-inlet-67169.herokuapp.com/delete-user/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 const Orders = () => {
     const [orders, setOrders] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://thawing-inlet-67169.herokuapp.com/orders')
         .then(res => res.json())
         .then(data => setOrders(data));
     }, [orders])
@@ -13,7 +13,7 @@ const Orders = () => {
     const handleDeleteOrder = id => {
         const proceed = window.confirm('Are you sure you want to delete this order?');
         if(proceed) {
-            const url = `http://localhost:5000/delete-order/${id}`;
+            const url = `https://thawing-inlet-67169.herokuapp.com/delete-order/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -34,7 +34,7 @@ const Orders = () => {
     const handleUpdateOrder = id => {
         const proceed = window.confirm('Are you sure you want to approve this order?');
         if(proceed) {
-            const url = `http://localhost:5000/update-order/${id}`;
+            const url = `https://thawing-inlet-67169.herokuapp.com/update-order/${id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {

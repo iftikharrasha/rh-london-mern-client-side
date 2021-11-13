@@ -9,7 +9,7 @@ const AdminForm = () => {
 
     const handleAdminSubmit = e => {
         const user = { email };
-        fetch('http://localhost:5000/users/admin', {
+        fetch('https://thawing-inlet-67169.herokuapp.com/users/admin', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -22,7 +22,7 @@ const AdminForm = () => {
                 document.getElementById('success').style.display = 'block';
                 e.target.reset();
             }else{
-                document.getElementById('error').style.display = 'block';
+                document.getElementById('success').style.display = 'block';
             }
         })
 
@@ -52,7 +52,7 @@ const AdminForm = () => {
                                                     <div className="input-field">
                                                         <input className="px-4 py-3 mb-2 text-black border border-transparent rounded lit--14" onBlur={handleOnBlur} type="text" name="email" placeholder="Enter Admin Email" autoComplete="on" required/>
                                                         <div className="input-icon">
-                                                            <i class="fa fa-pencil-square-o i-envelope" aria-hidden="true"></i>
+                                                            <i className="fa fa-pencil-square-o i-envelope" aria-hidden="true"></i>
                                                         </div>
                                                     </div>
                                                 </div>

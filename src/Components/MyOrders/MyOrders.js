@@ -7,7 +7,7 @@ const MyOrders = () => {
 
     const [myOrders, setMyOrders] = useState([]);
     useEffect(() => {
-        const url = `http://localhost:5000/my-orders/${orderOwner}`;
+        const url = `https://thawing-inlet-67169.herokuapp.com/my-orders/${orderOwner}`;
         fetch(url)
         .then(res => res.json())
         .then(data => setMyOrders(data));
@@ -17,7 +17,7 @@ const MyOrders = () => {
     const handleDeleteOrder = id => {
         const proceed = window.confirm('Are you sure you want to delete this order?');
         if(proceed) {
-            const url = `http://localhost:5000/delete-order/${id}`;
+            const url = `https://thawing-inlet-67169.herokuapp.com/delete-order/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -57,8 +57,8 @@ const MyOrders = () => {
                                             <div className="card-body overflowX">
                                                 <div className="card--title">
                                                     <Row>
-                                                        <Col sm={1} xs={4} className="text-center">
-                                                            <p className="reg-22">TOKEN</p>
+                                                        <Col sm={3} xs={4} className="text-center">
+                                                            <p className="reg-22">ORDER TOKEN</p>
                                                         </Col>
                                                         <Col sm={3} xs={4} className="text-center">
                                                             <p className="reg-22">Name</p>
@@ -69,9 +69,6 @@ const MyOrders = () => {
                                                         <Col sm={2} xs={4} className="d-sm-block d-none">
                                                             <p className="reg-22">Phone</p>
                                                         </Col>
-                                                        <Col sm={2} xs={4} className="d-sm-block d-none">
-                                                            <p className="reg-22">ACTION</p>
-                                                        </Col>
                                                         <Col sm={2} xs={4} className="d-sm-block">
                                                             <p className="reg-22">ACTION</p>
                                                         </Col>
@@ -81,9 +78,9 @@ const MyOrders = () => {
                                                 {myOrders.map((order) => (
                                                     <div className="card--data" data-aos="fade-left" data-aos-duration="1000" key={order._id}>
                                                         <div className="row mb-4">
-                                                            <Col sm={1} xs={4} className="profile">
-                                                                <div className="platform--icon mr-lg-4 mr-3 text-center">
-                                                                    <h3>{order.orderId.slice(0,5)}</h3>
+                                                            <Col sm={3} xs={4} className="profile">
+                                                                <div className="platform text-center">
+                                                                    <h3>{order.orderId.slice(0,25)}</h3>
                                                                 </div>
                                                             </Col>
                                                             <Col sm={3} xs={4} className="d-flex align-items-center justify-content-center">
@@ -96,9 +93,6 @@ const MyOrders = () => {
                                                             </Col>
                                                             <Col sm={2} xs={4} className="traffic">
                                                                 <p id="traffic-one">{order.phone}</p>
-                                                            </Col>
-                                                            <Col sm={2} xs={4} className="store">
-                                                                <button id="store-one">APPROVE</button>
                                                             </Col>
                                                             <Col sm={2} xs={4} className="store">
                                                                 <button id="store-one" onClick={() => handleDeleteOrder(order._id)}>DELETE</button>

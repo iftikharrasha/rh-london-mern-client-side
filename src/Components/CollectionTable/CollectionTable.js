@@ -4,16 +4,16 @@ import { Container, Row, Col } from 'react-bootstrap';
 const CollectionTable = () => {
     const [collections, setCollections] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/collections')
+        fetch('https://thawing-inlet-67169.herokuapp.com/collections')
         .then(res => res.json())
-        .then(data => setCollections(data));
+        .then(data => setCollections(data.collections));
     }, [])
 
     //Deleting
     const handleDeleteCollection = id => {
         const proceed = window.confirm('Are you sure you want to delete this order?');
         if(proceed) {
-            const url = `http://localhost:5000/delete-collection/${id}`;
+            const url = `https://thawing-inlet-67169.herokuapp.com/delete-collection/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

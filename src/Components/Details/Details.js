@@ -11,7 +11,7 @@ const Details = () => {
     const { loggedInUser } = useAuth();
     
     useEffect(() => {
-        const url = `http://localhost:5000/service-details/${orderId}`
+        const url = `https://thawing-inlet-67169.herokuapp.com/service-details/${orderId}`
         fetch(url)
         .then(res => res.json())
         .then(data => setDetails(data));
@@ -33,7 +33,7 @@ const Details = () => {
         const status = true;
 
         const newUser = {orderId, name, email, phone, address, category, price, status };
-        fetch('http://localhost:5000/place-order', {
+        fetch('https://thawing-inlet-67169.herokuapp.com/place-order', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -80,25 +80,25 @@ const Details = () => {
                                     <div className="input-field">
                                         <input className="px-4 py-3 mb-2 text-black border border-transparent rounded lit--14" type="text" ref={nameRef} name="name" placeholder="Enter Your Name" autoComplete="on" value={loggedInUser.name}/>
                                         <div className="input-icon">
-                                            <i class="fa fa-pencil-square-o i-envelope" aria-hidden="true"></i>
+                                            <i className="fa fa-pencil-square-o i-envelope" aria-hidden="true"></i>
                                         </div>
                                     </div>
                                     <div className="input-field my-3">
                                         <input type="email" ref={emailRef} className="px-4 py-3 mt-1 mb-2 text-black border border-transparent rounded lit--14" name="email" placeholder="Enter Your Email Address" autoComplete="on" value={loggedInUser.email}/>
                                         <div className="input-icon">
-                                            <i class="fa fa-pencil-square-o i-key" aria-hidden="true"></i>
+                                            <i className="fa fa-pencil-square-o i-key" aria-hidden="true"></i>
                                         </div>
                                     </div>
                                     <div className="input-field my-3">
                                         <input type="number" ref={phoneRef} className="px-4 py-3 mt-1 mb-2 text-black border border-transparent rounded lit--14" name="phone" placeholder="Enter Your Phone Number" autoComplete="on" required/>
                                         <div className="input-icon">
-                                            <i class="fa fa-pencil-square-o i-key" aria-hidden="true"></i>
+                                            <i className="fa fa-pencil-square-o i-key" aria-hidden="true"></i>
                                         </div>
                                     </div>
                                     <div className="input-field my-3">
                                         <input type="text" ref={addressRef} className="px-4 py-3 mt-1 mb-2 text-black border border-transparent rounded lit--14" name="adress" placeholder="Enter Your Address" autoComplete="on" required/>
                                         <div className="input-icon">
-                                            <i class="fa fa-pencil-square-o i-key" aria-hidden="true"></i>
+                                            <i className="fa fa-pencil-square-o i-key" aria-hidden="true"></i>
                                         </div>
                                     </div>
                                 </div>

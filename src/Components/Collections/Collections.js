@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Collections = () => {
     const [collections, setCollections] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/collections')
+        fetch('https://thawing-inlet-67169.herokuapp.com/collections')
         .then(res => res.json())
         .then(data => setCollections(data.collections));
     }, [])
