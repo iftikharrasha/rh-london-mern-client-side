@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 import initializeFirebase from "../Pages/Signin/Firebase/firebase.init";
-import { getAuth, createUserWithEmailAndPassword, signOut, onAuthStateChanged, getIdToken, signInWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signOut, onAuthStateChanged, signInWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 initializeFirebase();
 const useFirebase = () => {
     const [loggedInUser, setLoggedInUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
-    const [token, setToken] = useState('');
     const [admin, setAdmin] = useState(false);
 
     const auth = getAuth();
@@ -151,7 +150,6 @@ const useFirebase = () => {
     return {
         admin,
         isLoading,
-        token,
         loggedInUser,
         registerUser,
         loginUser,

@@ -1,28 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import Pagination from '../Pagination/Pagination';
 
 const Explore = () => {
     const [collections, setCollections] = useState([]);
+    const [page, setPage] = useState(0);
+    const [pageCount, setPageCount] = useState(0);
+    const size = 3;
+
     useEffect(() => {
-        fetch('http://localhost:5000/collections')
+        fetch(`http://localhost:5000/collections?page=${page}&&size=${size}`)
         .then(res => res.json())
-        .then(data => setCollections(data));
-    }, [])
-
-    // const [searchTerm, setSearchTerm] = useState('');
-
-    // const [showPerPage, setShowPerPage] = useState(9);
-
-    // const [pagination, setPagination] = useState({
-    //     start: 0,
-    //     end: showPerPage,
-    // });
-
-    // const onPaginationChange = (start, end) => {
-    //     setPagination({start:start, end:end});
-    // };
+        .then(data => {
+            setCollections(data.collections);
+            const count = data.count;
+            const pageNumber = Math.ceil(count/size);
+            setPageCount(pageNumber);
+        });
+    }, [page])
 
     return (
         <>
@@ -47,6 +42,23 @@ const Explore = () => {
                                 </div>
                             ))}
 
+                        </div>
+
+                        <div className="d-flex justify-content-center pt-5">
+                            <nav aria-label="Page navigation example">
+                                <ul className="pagination page-ul">
+
+                                    {
+                                        
+                                        [...Array(pageCount).keys()].map(number => (
+                                            <li className={`page-item pageNumber ${number === page ? "active" : ''}`}>
+                                                <a className="page-link" onClick={() => setPage(number)}>{number+1}</a>
+                                            </li>
+                                        ))
+                                    }
+                                
+                            </ul>
+                            </nav>
                         </div>
                     </div>
                 </Container>

@@ -7,7 +7,7 @@ const Collections = () => {
     useEffect(() => {
         fetch('http://localhost:5000/collections')
         .then(res => res.json())
-        .then(data => setCollections(data));
+        .then(data => setCollections(data.collections));
     }, [])
 
     return (

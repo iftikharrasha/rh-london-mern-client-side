@@ -25,6 +25,7 @@ import AddAdmin from './Pages/Dashboard/AddAdmin/AddAdmin.js';
 import AllUsers from './Pages/Dashboard/AllUsers/AllUsers.js';
 import PayNow from './Pages/Dashboard/PayNow/PayNow.js';
 import SingleOrders from './Pages/Dashboard/SingleOrders/SingleOrders.js';
+import AdminRoute from './Pages/AdminRoute/AdminRoute.js';
 
 // export const UserContext = createContext(); //from authprovider
 
@@ -58,33 +59,36 @@ function App() {
                                 <PrivateRoute path="/dashboard">
                                     <Dashboard/>
                                 </PrivateRoute>
-                                <PrivateRoute path="/all-collections">
-                                    <AllCollections/>
-                                </PrivateRoute>
-                                <PrivateRoute path="/add-collections">
-                                    <AddCollections/>
-                                </PrivateRoute>
-                                <PrivateRoute path="/manage-orders">
-                                    <ManageOrders/>
+                                <PrivateRoute path="/pay-now">
+                                   <PayNow/>
                                 </PrivateRoute>
                                 <PrivateRoute path="/my-orders/:orderOwner">
                                    <SingleOrders/>
                                 </PrivateRoute>
-                                <PrivateRoute path="/all-reviews">
-                                   <AllReviews/>
-                                </PrivateRoute>
                                 <PrivateRoute path="/add-review">
                                    <AddReviews/>
                                 </PrivateRoute>
-                                <PrivateRoute path="/add-admin">
+                                <AdminRoute path="/all-collections">
+                                    <AllCollections/>
+                                </AdminRoute>
+                                <AdminRoute path="/add-collections">
+                                    <AddCollections/>
+                                </AdminRoute>
+                                <AdminRoute path="/manage-orders">
+                                    <ManageOrders/>
+                                </AdminRoute>
+                                <AdminRoute path="/all-reviews">
+                                   <AllReviews/>
+                                </AdminRoute>
+                                <AdminRoute path="/add-admin">
                                    <AddAdmin/>
-                                </PrivateRoute>
-                                <PrivateRoute path="/all-users">
+                                </AdminRoute>
+                                <AdminRoute path="/all-users">
                                    <AllUsers/>
-                                </PrivateRoute>
-                                <PrivateRoute path="/pay-now">
-                                   <PayNow/>
-                                </PrivateRoute>
+                                </AdminRoute>
+                                <Route path="/not-found">
+                                    <NotFound/>
+                                </Route>
                                 <Route path="*">
                                     <NotFound/>
                                 </Route>

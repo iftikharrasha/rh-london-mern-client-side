@@ -7,7 +7,7 @@ const Orders = () => {
         fetch('http://localhost:5000/orders')
         .then(res => res.json())
         .then(data => setOrders(data));
-    }, [])
+    }, [orders])
 
     //Deleting
     const handleDeleteOrder = id => {
@@ -30,6 +30,30 @@ const Orders = () => {
         }
     }
 
+    //Updating
+    const handleUpdateOrder = id => {
+        const proceed = window.confirm('Are you sure you want to approve this order?');
+        if(proceed) {
+            const url = `http://localhost:5000/update-order/${id}`;
+            fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(orders)
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.modifiedCount > 0){
+                    document.getElementById('success2').style.display = 'block';
+                    setOrders(orders);
+                }else{
+                    document.getElementById('error2').style.display = 'block';
+                }
+            });
+        }
+    }
+
     return (
         <>
         <div className="main-content">
@@ -44,8 +68,10 @@ const Orders = () => {
                                         <h2 className="reg-bod-56"> <strong>Manage Orders</strong></h2>
                                     </div>
                                     <div className="text-center mb-3">
-                                        <p style={{color: 'green', display: 'none'}} id="success">Successfully deleted the order!</p>
-                                        <p style={{color: 'red', display: 'none'}} id="error">There is a problem deleting the order!</p>
+                                        <p style={{color: 'green', display: 'none'}} id="success1">Successfully deleted your order!</p>
+                                        <p style={{color: 'red', display: 'none'}} id="error1">There is a problem deleting the order!</p>
+                                        <p style={{color: 'green', display: 'none'}} id="success2">Successfully Approved this order!</p>
+                                        <p style={{color: 'red', display: 'none'}} id="error2">There is a problem approving the order!</p>
                                     </div>
 
                                     <div className="service--table mt-5">
@@ -88,13 +114,15 @@ const Orders = () => {
                                                                 </div>
                                                             </Col>
                                                             <Col sm={2} xs={4} className="label">
-                                                                {order.status ? <p id="label-one">Pending</p> : <p id="label-one">Shipping</p>} 
+                                                                {order.status ? <p id="label-one">Pending</p> : <p id="label-one" style={{backgroundColor: 'green', color: 'white'}}>Shipped</p>} 
                                                             </Col>
                                                             <Col sm={2} xs={4} className="traffic">
                                                                 <p id="traffic-one">{order.phone}</p>
                                                             </Col>
                                                             <Col sm={2} xs={4} className="store">
-                                                                <button id="store-one">APPROVE</button>
+                                                            {
+                                                                order.status ? <button onClick={() => handleUpdateOrder(order._id)}><span id="price-one">SHIP THIS</span></button> : <button  style={{backgroundColor: 'gray', cursor: 'not-allowed'}} disabled><span id="price-one" style={{color: 'white'}}>N/A</span></button>
+                                                            }
                                                             </Col>
                                                             <Col sm={2} xs={4} className="store">
                                                                 <button id="store-one" onClick={() => handleDeleteOrder(order._id)}>DELETE</button>

@@ -1,5 +1,6 @@
 .page-ul {
-    padding: 0.625rem 1.25rem;
+    padding: 1.25rem;
+    padding-bottom: 5rem;
     border-radius: 1.5625rem;
     box-shadow: 0 0.3125rem 10.3125rem rgba(0, 0, 0, 0.2);
     li {
@@ -29,7 +30,7 @@
       }
       .active{
         a {
-          background: #383838;
+          background: var(--fc3) !important;
           color: #C4E7C9;
           border-color: transparent;
           box-shadow: none;
@@ -53,3 +54,24 @@
       margin-left: 1.875rem;
     }
 }
+
+.page-link {
+  background: var(--fc2) !important;
+  color: var(--fc5);
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.page-link:hover {
+  background: var(--fc5) !important;
+  color: var(--fc3);
+}
+
+.page-item.active .page-link {
+  background: var(--fc4) !important;
+  color: var(--fc5);
+  border-color: transparent;
+  box-shadow: none;
+  font-weight: 700;
+}
+
