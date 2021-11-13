@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
-import { Link } from 'react-router-dom';
 import { useParams } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 
@@ -55,7 +54,7 @@ const Details = () => {
         e.preventDefault();
     }
 
-    function MyVerticallyCenteredModal(props) {
+    function PlaceOrderModal(props) {
         return (
           <Modal
             {...props}
@@ -71,7 +70,7 @@ const Details = () => {
             <Modal.Body>
                 <div className="login order">
                     <div className="text-center mb-3">
-                        <p style={{color: 'green', display: 'none'}} id="success">Successfully placed your order!</p>
+                        <p style={{color: 'green', display: 'none'}} id="success">Successfully placed your order! <br /> Payment Section Will be Coming Soon!</p>
                         <p style={{color: 'red', display: 'none'}} id="error">There is a problem adding your order!</p>
                     </div>
                     <div className="d-flex align-items-center justify-content-center">
@@ -154,7 +153,7 @@ const Details = () => {
                 </Container>
             </section>
 
-            <MyVerticallyCenteredModal
+            <PlaceOrderModal
                 show={modalShow}
                 onHide={() => setModalShow(false)}
             />

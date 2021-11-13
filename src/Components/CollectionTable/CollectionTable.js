@@ -9,26 +9,26 @@ const CollectionTable = () => {
         .then(data => setCollections(data));
     }, [])
 
-    // //Deleting
-    // const handleDeleteOrder = id => {
-    //     const proceed = window.confirm('Are you sure you want to delete this order?');
-    //     if(proceed) {
-    //         const url = `https://glacial-springs-97945.herokuapp.com/cancel/${id}`;
-    //         fetch(url, {
-    //             method: 'DELETE'
-    //         })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             if(data.deletedCount > 0){
-    //                 document.getElementById('success').style.display = 'block';
-    //                 const remainingOrders = myOrders.filter(myOrder => myOrder._id !== id);
-    //                 setMyOrders(remainingOrders);
-    //             }else{
-    //                 document.getElementById('error').style.display = 'block';
-    //             }
-    //         });
-    //     }
-    // }
+    //Deleting
+    const handleDeleteCollection = id => {
+        const proceed = window.confirm('Are you sure you want to delete this order?');
+        if(proceed) {
+            const url = `http://localhost:5000/delete-collection/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.deletedCount > 0){
+                    document.getElementById('success').style.display = 'block';
+                    const remainingCollections = collections.filter(collection => collection._id !== id);
+                    setCollections(remainingCollections);
+                }else{
+                    document.getElementById('error').style.display = 'block';
+                }
+            });
+        }
+    }
 
     return (
         <>
@@ -97,7 +97,7 @@ const CollectionTable = () => {
                                                                 <p className=""><span id="price-one">{collection.price}$ USD</span></p>
                                                             </Col>
                                                             <Col sm={2} xs={4} className="store">
-                                                                <button id="store-one">DELETE</button>
+                                                                <button id="store-one" onClick={() => handleDeleteCollection(collection._id)}>DELETE</button>
                                                             </Col>
                                                         </div>
                                                     </div>

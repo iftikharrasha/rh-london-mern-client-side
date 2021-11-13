@@ -20,7 +20,7 @@ const Reviews = () => {
         dots: false,
         arrows: false,
         infinite: true,
-        autoplay: false,
+        autoplay: true,
         autoplaySpeed: 3000,
         speed: 700,
         responsive: [
@@ -95,7 +95,7 @@ const Reviews = () => {
                         </Slider>
 
                         <div className="text-center mb-5">
-                            <Link to="/" className="btn-1">Drop a review</Link>
+                            <Link to="/add-review" className="btn-1">Drop a review</Link>
                         </div>
                 </Container>
 

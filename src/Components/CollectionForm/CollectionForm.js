@@ -3,6 +3,7 @@ import useAuth from '../../hooks/useAuth';
 
 const CollectionForm = () => {
     const {loggedInUser} = useAuth();
+
     const addedBy = loggedInUser.name;
     const date = new Date();
     const titleRef = useRef();
@@ -37,14 +38,12 @@ const CollectionForm = () => {
         .then(res => res.json())
         .then(data =>{
             if(data.insertedId){
-                // alert('Successfully added an offer!');
                 document.getElementById('success').style.display = 'block';
                 e.target.reset();
             }else{
                 document.getElementById('error').style.display = 'block';
             }
         })
-
         e.preventDefault();
     }
     return (
@@ -87,13 +86,13 @@ const CollectionForm = () => {
                                                         </div>
                                                     </div>
                                                     <div className="input-field my-3">
-                                                        <input type="url" ref={thumbRef} className="px-4 py-3 mt-1 mb-2 text-black border border-transparent rounded lit--14" name="img" placeholder="Enter Thumbnail Link" autoComplete="on" required/>
+                                                        <input type="text" ref={thumbRef} className="px-4 py-3 mt-1 mb-2 text-black border border-transparent rounded lit--14" name="img" placeholder="Enter Thumbnail Link" autoComplete="on" required/>
                                                         <div className="input-icon">
                                                             <i class="fa fa-pencil-square-o i-key" aria-hidden="true"></i>
                                                         </div>
                                                     </div>
                                                     <div className="input-field my-3">
-                                                        <input type="url" ref={imgRef} className="px-4 py-3 mt-1 mb-2 text-black border border-transparent rounded lit--14" name="img" placeholder="Enter Image Link" autoComplete="on" required/>
+                                                        <input type="text" ref={imgRef} className="px-4 py-3 mt-1 mb-2 text-black border border-transparent rounded lit--14" name="img" placeholder="Enter Image Link" autoComplete="on" required/>
                                                         <div className="input-icon">
                                                             <i class="fa fa-pencil-square-o i-key" aria-hidden="true"></i>
                                                         </div>

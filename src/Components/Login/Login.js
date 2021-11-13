@@ -38,7 +38,7 @@ const Login = () => {
         if(field === 'password'){
             const regexPass = /\d{1}/;
             const isPassNumber = regexPass.test(value);
-            const isPassLength = value.length > 6;
+            const isPassLength = value.length > 5;
       
             isFormValid = isPassLength && isPassNumber;
         }

@@ -42,7 +42,7 @@ const Explore = () => {
                                     </div>
                                     <div className="info">
                                         <h4>{collection.title}</h4>
-                                        <p>{collection.desc.split(' ').slice(0, 21).toString().replace(/,/g, ' ')}... <Link to={"/service-details/"+collection._id}>READ MORE</Link></p>
+                                        <p>{collection.desc.split(' ').slice(0, 21).toString().replace(/,/g, ' ')}... <Link to={"/service-details/"+collection._id}>PURCHASE</Link></p>
                                     </div>
                                 </div>
                             ))}

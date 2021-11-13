@@ -9,26 +9,26 @@ const Orders = () => {
         .then(data => setOrders(data));
     }, [])
 
-    // //Deleting
-    // const handleDeleteOrder = id => {
-    //     const proceed = window.confirm('Are you sure you want to delete this order?');
-    //     if(proceed) {
-    //         const url = `https://glacial-springs-97945.herokuapp.com/cancel/${id}`;
-    //         fetch(url, {
-    //             method: 'DELETE'
-    //         })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             if(data.deletedCount > 0){
-    //                 document.getElementById('success').style.display = 'block';
-    //                 const remainingOrders = myOrders.filter(myOrder => myOrder._id !== id);
-    //                 setMyOrders(remainingOrders);
-    //             }else{
-    //                 document.getElementById('error').style.display = 'block';
-    //             }
-    //         });
-    //     }
-    // }
+    //Deleting
+    const handleDeleteOrder = id => {
+        const proceed = window.confirm('Are you sure you want to delete this order?');
+        if(proceed) {
+            const url = `http://localhost:5000/delete-order/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.deletedCount > 0){
+                    document.getElementById('success').style.display = 'block';
+                    const remainingOrders = orders.filter(order => order._id !== id);
+                    setOrders(remainingOrders);
+                }else{
+                    document.getElementById('error').style.display = 'block';
+                }
+            });
+        }
+    }
 
     return (
         <>
@@ -97,7 +97,7 @@ const Orders = () => {
                                                                 <button id="store-one">APPROVE</button>
                                                             </Col>
                                                             <Col sm={2} xs={4} className="store">
-                                                                <button id="store-one">DELETE</button>
+                                                                <button id="store-one" onClick={() => handleDeleteOrder(order._id)}>DELETE</button>
                                                             </Col>
                                                         </div>
                                                     </div>

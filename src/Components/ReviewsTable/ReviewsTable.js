@@ -9,26 +9,26 @@ const ReviewsTable = () => {
         .then(data => setReviews(data));
     }, [])
 
-    // //Deleting
-    // const handleDeleteOrder = id => {
-    //     const proceed = window.confirm('Are you sure you want to delete this order?');
-    //     if(proceed) {
-    //         const url = `https://glacial-springs-97945.herokuapp.com/cancel/${id}`;
-    //         fetch(url, {
-    //             method: 'DELETE'
-    //         })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             if(data.deletedCount > 0){
-    //                 document.getElementById('success').style.display = 'block';
-    //                 const remainingOrders = myOrders.filter(myOrder => myOrder._id !== id);
-    //                 setMyOrders(remainingOrders);
-    //             }else{
-    //                 document.getElementById('error').style.display = 'block';
-    //             }
-    //         });
-    //     }
-    // }
+    //Deleting
+    const handleDeleteReview = id => {
+        const proceed = window.confirm('Are you sure you want to delete this order?');
+        if(proceed) {
+            const url = `http://localhost:5000/delete-review/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.deletedCount > 0){
+                    document.getElementById('success').style.display = 'block';
+                    const remainingReviews = reviews.filter(review => review._id !== id);
+                    setReviews(remainingReviews);
+                }else{
+                    document.getElementById('error').style.display = 'block';
+                }
+            });
+        }
+    }
 
     return (
         <>
@@ -44,8 +44,8 @@ const ReviewsTable = () => {
                                         <h2 className="reg-bod-56"> <strong>All Reviews</strong></h2>
                                     </div>
                                     <div className="text-center mb-3">
-                                        <p style={{color: 'green', display: 'none'}} id="success">Successfully deleted the collection!</p>
-                                        <p style={{color: 'red', display: 'none'}} id="error">There is a problem deleting the collection!</p>
+                                        <p style={{color: 'green', display: 'none'}} id="success">Successfully deleted the review!</p>
+                                        <p style={{color: 'red', display: 'none'}} id="error">There is a problem deleting the review!</p>
                                     </div>
 
                                     <div className="service--table mt-5">
@@ -91,7 +91,7 @@ const ReviewsTable = () => {
                                                                 <p id="traffic-one">{review.desc.slice(0, 50)}...</p>
                                                             </Col>
                                                             <Col sm={2} xs={4} className="store">
-                                                                <button id="store-one">DELETE</button>
+                                                                <button id="store-one" onClick={() => handleDeleteReview(review._id)}>DELETE</button>
                                                             </Col>
                                                         </div>
                                                     </div>
