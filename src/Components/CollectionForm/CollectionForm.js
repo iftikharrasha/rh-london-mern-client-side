@@ -5,7 +5,7 @@ const CollectionForm = () => {
     const {loggedInUser} = useAuth();
 
     const addedBy = loggedInUser.name;
-    const date = new Date();
+    const date = new Date().toISOString().slice(0, 10);
     const titleRef = useRef();
     const subtitleRef = useRef();
     const catRef = useRef();

@@ -37,7 +37,7 @@ const Collections = () => {
                     </div>
 
                     <div className="text-center mb-5">
-                        <Link to="/" className="btn-1">See all collections</Link>
+                        <Link to="/explore" className="btn-1">See all collections</Link>
                     </div>
                 </Container>
             </section> 

@@ -143,7 +143,7 @@ const Details = () => {
                         </Row>
                         <Row className="below">
                             <Col className="my-5 p-3">
-                                <p>Published: {details.Date}</p>
+                                <p>Published: {details.date}</p>
                                 <h3>{details.subtitle}</h3>
                                 <p className="reg-22 py-3">{details.desc}</p>
                                 <h2><span>Price</span>: {details.price} | <span>Category</span>: {details.category}</h2>

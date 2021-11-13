@@ -9,6 +9,7 @@ const useFirebase = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
     const [token, setToken] = useState('');
+    const [admin, setAdmin] = useState(false);
 
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
@@ -21,6 +22,10 @@ const useFirebase = () => {
                     const newUserInfo = { email, displayName: name, success: true };
                     setLoggedInUser(newUserInfo);
 
+                    // save user to the database
+                    saveUser(email, name, 'POST');
+
+                    //send extra info to firebase
                     updateProfile(auth.currentUser, {
                         displayName: name,
                         photoURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6XZtZr6e_zPRkbWX6o9S-KeNbUbzgw9qWDA&usqp=CAU'
@@ -69,6 +74,10 @@ const useFirebase = () => {
         .then((result) => {
                 const user = result.user;
                 const {displayName, email, photoURL, accessToken} = user;
+
+                //upset to database for new user
+                saveUser(user.email, user.displayName, 'PUT');
+
                 localStorage.setItem('token', accessToken);
                 setAuthError('');
                 const signedInUser = {
@@ -110,6 +119,12 @@ const useFirebase = () => {
         return () => unsubscribed;
     }, [auth])
 
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${loggedInUser.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [loggedInUser.email])
+
     const logoutUser = () => {
         setIsLoading(true);
         signOut(auth).then((res) => {
@@ -121,7 +136,20 @@ const useFirebase = () => {
         .finally(() => setIsLoading(false));
     }
 
+    const saveUser = (email, displayName, method) => {
+        const user = { email, displayName };
+        fetch('http://localhost:5000/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then()
+    } 
+
     return {
+        admin,
         isLoading,
         token,
         loggedInUser,

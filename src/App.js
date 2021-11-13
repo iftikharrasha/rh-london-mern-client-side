@@ -21,6 +21,10 @@ import './Sass/style.css';
 import AuthProvider from './contexts/AuthProvider/AuthProvider.js';
 import AllReviews from './Pages/Dashboard/AllReviews/AllReviews.js';
 import AddReviews from './Pages/Dashboard/AddReviews/AddReviews.js';
+import AddAdmin from './Pages/Dashboard/AddAdmin/AddAdmin.js';
+import AllUsers from './Pages/Dashboard/AllUsers/AllUsers.js';
+import PayNow from './Pages/Dashboard/PayNow/PayNow.js';
+import SingleOrders from './Pages/Dashboard/SingleOrders/SingleOrders.js';
 
 // export const UserContext = createContext(); //from authprovider
 
@@ -63,37 +67,24 @@ function App() {
                                 <PrivateRoute path="/manage-orders">
                                     <ManageOrders/>
                                 </PrivateRoute>
+                                <PrivateRoute path="/my-orders/:orderOwner">
+                                   <SingleOrders/>
+                                </PrivateRoute>
                                 <PrivateRoute path="/all-reviews">
                                    <AllReviews/>
                                 </PrivateRoute>
                                 <PrivateRoute path="/add-review">
                                    <AddReviews/>
                                 </PrivateRoute>
-                                {/* <Route path="/all-offers">
-                                    <Header/>
-                                    <AllOffers/>
-                                    <Footer/>
-                                </Route>
-                                <PrivateRoute path="/all-orders">
-                                    <Header/>
-                                    <AllOrders/>
-                                    <Footer/>
+                                <PrivateRoute path="/add-admin">
+                                   <AddAdmin/>
                                 </PrivateRoute>
-                                <PrivateRoute path="/my-orders/:orderOwner">
-                                    <Header/>
-                                    <MyOrders/>
-                                    <Footer/>
+                                <PrivateRoute path="/all-users">
+                                   <AllUsers/>
                                 </PrivateRoute>
-                                <PrivateRoute path="/place-order/:orderId">
-                                    <Header/>
-                                    <PlaceOrder/>
-                                    <Footer/>
+                                <PrivateRoute path="/pay-now">
+                                   <PayNow/>
                                 </PrivateRoute>
-                                <PrivateRoute path="/add-offers/:addedBy">
-                                    <Header/>
-                                    <AddOffer/>
-                                    <Footer/>
-                                </PrivateRoute> */}
                                 <Route path="*">
                                     <NotFound/>
                                 </Route>
