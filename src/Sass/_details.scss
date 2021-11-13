@@ -1,0 +1,131 @@
+.details{
+    position: relative;
+    padding: 10rem 0;
+
+    .details-div{
+        position: relative;
+        width: 100%;
+        .detail-info{
+            position: absolute;
+            z-index: 1;
+            padding: 3rem;
+            top: 10rem;
+            // bottom: 350px;
+            // left: 10%;
+            .anime {
+                position: absolute;
+                top: 25rem;
+                left: 10%;
+                transform: translate(-50%, -50%);
+                span{
+                    display: block;
+                    width: 20px;
+                    height: 20px;
+                    border-bottom: 2px solid #A68260;
+                    border-right: 2px solid #A68260;
+                    transform: rotate(45deg);
+                    margin: -10px;
+                    animation: animate 2s infinite;
+                    &:nth-child(2){
+                        animation-delay: -0.2s;
+                    }
+                    &:nth-child(3){
+                        animation-delay: -0.4s;
+                    }
+                    @keyframes animate{
+                        0%{
+                            opacity: 0;
+                            transform: rotate(45deg) translate(-20px, -20px);
+                        }
+                        50%{
+                            opacity: 1;
+                        }
+                        100%{
+                            opacity: 0;
+                            transform: rotate(45deg) translate(20px, 20px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+  
+  /* Extra small devices (portrait phones, less than 576px) */
+  @media (max-width: 575.98px) {
+    .detail-info {
+        bottom: 270px;
+        left: 7%;
+    }
+
+    .detail-info h3 span {
+        display: block;
+    }
+
+    .anime {
+        top: 200px;
+    }
+  }
+  
+    /* Small devices (landscape phones, 576px and up) */
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    .detail-info {
+        bottom: 350px;
+        left: 7%;
+    }
+
+    .detail-info h1 span {
+        display: block;
+    }
+
+    .anime {
+        top: 250px;
+    }
+  }
+  
+  /* Medium devices(sm) (tablets, 768px and up) */
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .detail-info {
+        bottom: 275px;
+        left: 7%;
+    }
+
+    .detail-info h3 span {
+        display: block;
+    }
+
+    .anime {
+        top: 300px;
+    }
+  }
+  
+  /* Large devices(md) (desktops, 992px and up) */
+  @media (min-width: 992px) and (max-width: 1299.98px) {
+    .detail-info {
+        bottom: 300px;
+        left: 7%;
+    }
+
+    .anime {
+        top: 200px;
+    }
+  }
+  
+  /* Extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1300px) and (max-width: 1531.98px){
+    .detail-info {
+        bottom: 400px;
+        left: 10%;
+    }
+  }
+  
+  /****** Extra extra small devices (s6 mobiles, 320px and below) *******/
+  @media (max-width: 320px) {
+    .detail-info {
+        bottom: 270px;
+    }
+  }
+  
+}

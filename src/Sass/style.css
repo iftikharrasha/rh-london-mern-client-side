@@ -907,142 +907,151 @@
           filter: blur(3px) brightness(80%);
 }
 
-.page {
-  min-height: 55rem;
-  padding-bottom: 7rem;
-  background: none;
-}
-
-.page .page--title {
-  padding: 6.5rem 0 2rem 0;
-}
-
-.page .page--title h2 {
+.details {
   position: relative;
-  right: 50%;
-  left: 50%;
+  padding: 10rem 0;
+  /* Extra small devices (portrait phones, less than 576px) */
+  /* Small devices (landscape phones, 576px and up) */
+  /* Medium devices(sm) (tablets, 768px and up) */
+  /* Large devices(md) (desktops, 992px and up) */
+  /* Extra large devices (large desktops, 1200px and up) */
+  /****** Extra extra small devices (s6 mobiles, 320px and below) *******/
+}
+
+.details .details-div {
+  position: relative;
+  width: 100%;
+}
+
+.details .details-div .detail-info {
+  position: absolute;
+  z-index: 1;
+  padding: 3rem;
+  top: 10rem;
+}
+
+.details .details-div .detail-info .anime {
+  position: absolute;
+  top: 25rem;
+  left: 10%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
 
-.page .page--title h2 .line-1, .page .page--title h2 .line-2 {
-  display: inline;
-  position: absolute;
-  content: "";
-  width: 32rem;
-  height: 0.2rem;
-  top: .95rem;
-  background: -webkit-gradient(linear, right top, left top, from(#ffffff00), to(#9994F0));
-  background: linear-gradient(right, #ffffff00 0%, #9994F0 100%);
-  background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), to(#9994f0));
-  background: linear-gradient(right, rgba(255, 255, 255, 0) 0%, #9994f0 100%);
+.details .details-div .detail-info .anime span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-bottom: 2px solid #A68260;
+  border-right: 2px solid #A68260;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  margin: -10px;
+  -webkit-animation: animate 2s infinite;
+          animation: animate 2s infinite;
+}
+
+.details .details-div .detail-info .anime span:nth-child(2) {
+  -webkit-animation-delay: -0.2s;
+          animation-delay: -0.2s;
+}
+
+.details .details-div .detail-info .anime span:nth-child(3) {
+  -webkit-animation-delay: -0.4s;
+          animation-delay: -0.4s;
+}
+
+@-webkit-keyframes animate {
+  0% {
+    opacity: 0;
+    -webkit-transform: rotate(45deg) translate(-20px, -20px);
+            transform: rotate(45deg) translate(-20px, -20px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: rotate(45deg) translate(20px, 20px);
+            transform: rotate(45deg) translate(20px, 20px);
+  }
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+    -webkit-transform: rotate(45deg) translate(-20px, -20px);
+            transform: rotate(45deg) translate(-20px, -20px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: rotate(45deg) translate(20px, 20px);
+            transform: rotate(45deg) translate(20px, 20px);
+  }
 }
 
 @media (max-width: 575.98px) {
-  .page .page--title h2 .line-1, .page .page--title h2 .line-2 {
-    width: 9rem;
+  .details .detail-info {
+    bottom: 270px;
+    left: 7%;
+  }
+  .details .detail-info h3 span {
+    display: block;
+  }
+  .details .anime {
+    top: 200px;
   }
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
-  .page .page--title h2 .line-1, .page .page--title h2 .line-2 {
-    width: 23rem;
+  .details .detail-info {
+    bottom: 350px;
+    left: 7%;
+  }
+  .details .detail-info h1 span {
+    display: block;
+  }
+  .details .anime {
+    top: 250px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
-  .page .page--title h2 .line-1, .page .page--title h2 .line-2 {
-    width: 23rem;
+  .details .detail-info {
+    bottom: 275px;
+    left: 7%;
+  }
+  .details .detail-info h3 span {
+    display: block;
+  }
+  .details .anime {
+    top: 300px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1299.98px) {
+  .details .detail-info {
+    bottom: 300px;
+    left: 7%;
+  }
+  .details .anime {
+    top: 200px;
+  }
+}
+
+@media (min-width: 1300px) and (max-width: 1531.98px) {
+  .details .detail-info {
+    bottom: 400px;
+    left: 10%;
   }
 }
 
 @media (max-width: 320px) {
-  .page .page--title h2 .line-1, .page .page--title h2 .line-2 {
-    width: 4.5rem;
-  }
-}
-
-@media (min-width: 321px) and (max-width: 376px) {
-  .page .page--title h2 .line-1, .page .page--title h2 .line-2 {
-    width: 6.5rem;
-  }
-}
-
-@media (min-width: 355px) and (max-width: 366px) {
-  .page .page--title h2 .line-1, .page .page--title h2 .line-2 {
-    width: 6rem;
-  }
-}
-
-.page .page--title h2 .line-1 span, .page .page--title h2 .line-2 span {
-  position: absolute;
-  top: -0.15rem;
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 50%;
-  background-color: purple;
-}
-
-.page .page--title h2 .line-1 {
-  left: 0;
-  background: -webkit-gradient(linear, left top, right top, from(#ffffff00), to(#9994F0));
-  background: linear-gradient(left, #ffffff00 0%, #9994F0 100%);
-  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), to(#9994f0));
-  background: linear-gradient(left, rgba(255, 255, 255, 0) 0%, #9994f0 100%);
-}
-
-.page .page--title h2 .line-1 span {
-  right: 0;
-}
-
-.page .page--title h2 .line-2 {
-  right: 0;
-  border: 0;
-}
-
-.page .page--title h2 .line-2 span {
-  left: 0;
-}
-
-.page .page--top {
-  min-height: auto;
-}
-
-.page .page--top .banner {
-  border-radius: 1.2rem;
-}
-
-@media (max-width: 575.98px) {
-  .page .page--top .banner {
-    width: 25rem;
-  }
-}
-
-@media (max-width: 320px) {
-  .page .page--top .banner {
-    width: 22rem;
-  }
-}
-
-@media (max-width: 991.98px) {
-  .page .page--top h1 {
-    font-size: 1.5rem;
-  }
-}
-
-.page .page--top h2 {
-  color: purple;
-}
-
-@media (max-width: 991.98px) {
-  .page .page--top h2 {
-    font-size: 1.25rem;
-  }
-}
-
-@media (max-width: 320px) {
-  .page .page--top p {
-    font-size: .93rem;
+  .details .detail-info {
+    bottom: 270px;
   }
 }
 
@@ -1430,6 +1439,10 @@
     min-height: auto;
     margin: 12rem 0;
   }
+}
+
+.main-content .header-body h4 {
+  text-transform: capitalize;
 }
 
 /*welcome*/

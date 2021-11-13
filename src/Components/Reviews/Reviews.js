@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import ReactStars from "react-rating-stars-component";
@@ -10,6 +10,13 @@ import review2 from '../../img/review2.webp';
 import review3 from '../../img/review3.webp';
 
 const Reviews = () => {
+    const [reviews, setReviews] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/reviews')
+        .then(res => res.json())
+        .then(data => setReviews(data));
+    }, [])
+
     var settings = {
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -66,24 +73,20 @@ const Reviews = () => {
                         <h2 className="reg-bod-56 mb-5">WHAT OUR CLIENT SAYS</h2>
                     </div>
                         <Slider {...settings}>
-                        {/* {
-                        outlet.map(outlet => <Card outlet={outlet} key={outlet.key} category={relCat}></Card>)
-                        } */}
 
-                            <div className="row">
+                            {reviews.map((review) => (
+                            <div className="row" key={review._id}>
                                 <div className="story">
                                     <figure className="story-shape">
-                                        <img src={review1} className="story-img" alt={review1}/>
-                                        <figcaption className="story-caption">Mary Smith</figcaption>
+                                        <img src={review.img} className="story-img" alt={review.img}/>
+                                        <figcaption className="story-caption">{review.author}</figcaption>
                                     </figure>
                                     <div className="story-text">
                                         <h3 className="heading-tertiary margin-bottom-small">
-                                            I had the best week ever with my family
+                                            {review.title}
                                         </h3>
                                         <p>
-                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae ratione illum
-                                            exercitationem? Recusandae neque nobis ipsa eligendi rerum ea at optio placeat! Saepe
-                                            voluptate adipisci eius veniam. Tempora, laborum eos.
+                                            {review.desc}
                                         </p>
                                         <div className="story-rating">
                                             <ReactStars {...ratingCount} />
@@ -91,55 +94,12 @@ const Reviews = () => {
                                     </div>
                                 </div>
                             </div>
-
-                            <div className="row">
-                                <div className="story">
-                                    <figure className="story-shape">
-                                        <img src={review2} className="story-img" alt={review2}/>
-                                        <figcaption className="story-caption">Mary Smith</figcaption>
-                                    </figure>
-                                    <div className="story-text">
-                                        <h3 className="heading-tertiary margin-bottom-small">
-                                            I had the best week ever with my family
-                                        </h3>
-                                        <p>
-                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae ratione illum
-                                            exercitationem? Recusandae neque nobis ipsa eligendi rerum ea at optio placeat! Saepe
-                                            voluptate adipisci eius veniam. Tempora, laborum eos.
-                                        </p>
-                                        <div className="story-rating">
-                                            <ReactStars {...ratingCount} />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="row">
-                                <div className="story">
-                                    <figure className="story-shape">
-                                        <img src={review3} className="story-img" alt={review3}/>
-                                        <figcaption className="story-caption">Mary Smith</figcaption>
-                                    </figure>
-                                    <div className="story-text">
-                                        <h3 className="heading-tertiary margin-bottom-small">
-                                            I had the best week ever with my family
-                                        </h3>
-                                        <p>
-                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae ratione illum
-                                            exercitationem? Recusandae neque nobis ipsa eligendi rerum ea at optio placeat! Saepe
-                                            voluptate adipisci eius veniam. Tempora, laborum eos.
-                                        </p>
-                                        <div className="story-rating">
-                                            <ReactStars {...ratingCount} />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            ))}
 
                         </Slider>
 
                         <div className="text-center mb-5">
-                            <Link to="/" className="btn-1">Read all reviews</Link>
+                            <Link to="/" className="btn-1">Drop a review</Link>
                         </div>
                 </Container>
 

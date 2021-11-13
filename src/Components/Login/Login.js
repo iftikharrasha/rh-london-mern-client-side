@@ -9,7 +9,6 @@ import useAuth from '../../hooks/useAuth';
 const Login = () => {
     const [loginData, setLoginData] = useState({});
     const { loggedInUser, loginUser, isLoading, signInWithGoogle, authError } = useAuth();
-    // const [newUser, setNewUser] = useState(false);
 
     const history = useHistory();
     const location = useLocation();
@@ -48,7 +47,6 @@ const Login = () => {
             const newUserInfo = {...loginData};
             newUserInfo[field] = value;
             setLoginData(newUserInfo);
-            localStorage.setItem('uname', newUserInfo.email);
         }
     }
 

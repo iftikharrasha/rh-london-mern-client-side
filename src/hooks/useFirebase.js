@@ -5,29 +5,6 @@ import { getAuth, createUserWithEmailAndPassword, signOut, onAuthStateChanged, g
 
 initializeFirebase();
 const useFirebase = () => {
-    // const getDecodedUser = () => {
-    //     const token = localStorage.getItem('token');
-    //     if (!token) {
-    //         return {
-    //             isSignedIn: false,
-    //             name: '',
-    //             email: '',
-    //             photo: '',
-    //             success: false,
-    //             error: ''
-    //         };
-    //     }
-    //     const {name, email, picture} = jwt_decode(token);
-    //     const decodedUser = {
-    //         isSignedIn: true,
-    //         email: email,
-    //         photo: picture,
-    //         success: true,
-    //         name: (name.split(' '))[0]
-    //     }
-    //     return decodedUser;
-    // }
-
     const [loggedInUser, setLoggedInUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
@@ -43,7 +20,7 @@ const useFirebase = () => {
                     setAuthError('');
                     const newUserInfo = { email, displayName: name, success: true };
                     setLoggedInUser(newUserInfo);
-                    // send name to firebase after creation
+
                     updateProfile(auth.currentUser, {
                         displayName: name,
                         photoURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6XZtZr6e_zPRkbWX6o9S-KeNbUbzgw9qWDA&usqp=CAU'
@@ -73,11 +50,10 @@ const useFirebase = () => {
                     email: email,
                     photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6XZtZr6e_zPRkbWX6o9S-KeNbUbzgw9qWDA&usqp=CAU',
                     success: true,
-                    name: (displayName.split(' '))[0]
+                    name: displayName
                 };
                 setLoggedInUser(signedInUser);
-                // setUserToken();
-                // send name to firebase after creation
+
                 const destination = location?.state?.from || '/';
                 history.replace(destination);
             })
@@ -100,7 +76,7 @@ const useFirebase = () => {
                     email: email,
                     photo: photoURL,
                     success: true,
-                    name: (displayName.split(' '))[0]
+                    name: displayName
                 };
                 // setAuthToken();
                 setLoggedInUser(signedInUser);
@@ -111,14 +87,6 @@ const useFirebase = () => {
             })
             .finally(() => setIsLoading(false));
     }
-
-    // const setAuthToken = () => {
-    //     getIdToken(true).then(function(idToken) {
-    //         localStorage.setItem('token', idToken);
-    //     }).catch((error) => {
-    //         console.log(error);
-    //     });
-    // }
 
     // observer user state
     useEffect(() => {
@@ -131,7 +99,7 @@ const useFirebase = () => {
                     email: email,
                     photo: picture,
                     success: true,
-                    name: (name.split(' '))[0]
+                    name: name
                 }
                 setLoggedInUser(decodedUser);
             } else {

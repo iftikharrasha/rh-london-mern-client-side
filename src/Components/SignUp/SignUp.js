@@ -8,15 +8,14 @@ import useAuth from '../../hooks/useAuth';
 
 const SignUp = () => {
     const [loginData, setLoginData] = useState({});
-    const { registerUser, isLoading } = useAuth();
+    const { registerUser, signInWithGoogle, isLoading } = useAuth();
     const [newUser, setNewUser] = useState(false);
 
     const history = useHistory();
     const location = useLocation();
-    const { from } = location.state || { from: { pathname: "/login" } };
 
     const handleGoogleSignIn = () => {
-
+        signInWithGoogle(location, history);
     }
 
     const handleNormalAuth = (event) => {

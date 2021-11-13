@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import firebase from "firebase/compat/app";
 import logo from '../../img/logo.png';
 import logout from '../../img/logout.svg';
 import useAuth from '../../hooks/useAuth';
@@ -47,7 +46,7 @@ const Header = () => {
                                                                     <span className="avatar mr-2">
                                                                         <img alt={loggedInUser.name} src={loggedInUser.photo}/>
                                                                     </span>
-                                                                    <span className="mb-0">{loggedInUser.name}</span>
+                                                                    <span className="mb-0">{(loggedInUser.name.split(' '))[0]}</span>
                                                                 </Link>
                                                             </li>
                                                             <li><Link to="/dashboard">Dashboard</Link></li>

@@ -1,7 +1,10 @@
 import React from 'react';
+import useAuth from '../../hooks/useAuth';
 import welcome from '../../img/welcome.png';
 
 const Welcome = () => {
+    const { loggedInUser } = useAuth();
+
     return (
         <>
             <div className="main-content">
@@ -9,7 +12,7 @@ const Welcome = () => {
                     <div className="header-body">
                         <div className="row align-items-center py-4">
                             <div className="col-lg-12">
-                                <h4 className="reg-bod-56 pb-4">Welcome Iftikhar,</h4>
+                                <h4 className="reg-bod-56 pb-4">Welcome {loggedInUser.name},</h4>
                             </div>
                             <div className="col-md-12">
                                 <div className="welcome-banner">
