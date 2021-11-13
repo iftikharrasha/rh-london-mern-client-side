@@ -11,21 +11,16 @@ import Signup from './Pages/Signup/Signup.js';
 import ExploreAll from './Pages/ExploreAll/ExploreAll.js';
 import ServiceDetails from './Pages/ServiceDetails/ServiceDetails.js';
 import NotFound from './Pages/NotFound/NotFound.js';
-
-import Offers from './Components/Offers/Offers.js';
-import MyOrders from './Components/MyOrders/MyOrders.js';
-import AllOrders from './Components/AllOrders/AllOrders.js';
-import PlaceOrder from './Components/PlaceOrder/PlaceOrder.js';
-import AddOffer from './Components/AddOffer/AddOffer.js';
-import AllOffers from './Components/AllOffers/AllOffers.js';
-
-import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './Sass/style.css';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard.js';
 import AllCollections from './Pages/Dashboard/AllCollections/AllCollections.js';
 import AddCollections from './Pages/Dashboard/AddCollections/AddCollections.js';
+import ManageOrders from './Pages/Dashboard/ManageOrders/ManageOrders.js';
+import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './Sass/style.css';
 import AuthProvider from './contexts/AuthProvider/AuthProvider.js';
+import AllReviews from './Pages/Dashboard/AllReviews/AllReviews.js';
+import AddReviews from './Pages/Dashboard/AddReviews/AddReviews.js';
 
 // export const UserContext = createContext(); //from authprovider
 
@@ -64,6 +59,15 @@ function App() {
                                 </PrivateRoute>
                                 <PrivateRoute path="/add-collections">
                                     <AddCollections/>
+                                </PrivateRoute>
+                                <PrivateRoute path="/manage-orders">
+                                    <ManageOrders/>
+                                </PrivateRoute>
+                                <PrivateRoute path="/all-reviews">
+                                   <AllReviews/>
+                                </PrivateRoute>
+                                <PrivateRoute path="/add-review">
+                                   <AddReviews/>
                                 </PrivateRoute>
                                 {/* <Route path="/all-offers">
                                     <Header/>

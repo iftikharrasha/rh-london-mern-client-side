@@ -36,13 +36,13 @@ const Explore = () => {
                                 <div className="box" key={collection._id}>
                                     <h6>{collection.category}</h6>
                                     <div className="img">
-                                        <Link to="/service-details">
+                                        <Link to={"/service-details/"+collection._id}>
                                             <img src={collection.thumb} alt={collection.thumb}/>
                                         </Link>
                                     </div>
                                     <div className="info">
                                         <h4>{collection.title}</h4>
-                                        <p>{collection.desc.split(' ').slice(0, 21).toString().replace(/,/g, ' ')}... <Link to="/service-details">READ MORE</Link></p>
+                                        <p>{collection.desc.split(' ').slice(0, 21).toString().replace(/,/g, ' ')}... <Link to={"/service-details/"+collection._id}>READ MORE</Link></p>
                                     </div>
                                 </div>
                             ))}

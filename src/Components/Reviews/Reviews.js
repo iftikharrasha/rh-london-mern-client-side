@@ -5,9 +5,6 @@ import ReactStars from "react-rating-stars-component";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
-import review1 from '../../img/review1.webp';
-import review2 from '../../img/review2.webp';
-import review3 from '../../img/review3.webp';
 
 const Reviews = () => {
     const [reviews, setReviews] = useState([]);
@@ -53,7 +50,6 @@ const Reviews = () => {
         count: 5,
         color: "black",
         activeColor: "red",
-        value: 4.5,
         a11y: true,
         isHalf: true,
         emptyIcon: <i className="far fa-star" />,
@@ -89,7 +85,7 @@ const Reviews = () => {
                                             {review.desc}
                                         </p>
                                         <div className="story-rating">
-                                            <ReactStars {...ratingCount} />
+                                            <ReactStars {...ratingCount} value={review.rating} edit={false}/>
                                         </div>
                                     </div>
                                 </div>

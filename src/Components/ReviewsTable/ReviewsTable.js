@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
-const CollectionTable = () => {
-    const [collections, setCollections] = useState([]);
+const ReviewsTable = () => {
+    const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/collections')
+        fetch('http://localhost:5000/reviews')
         .then(res => res.json())
-        .then(data => setCollections(data));
+        .then(data => setReviews(data));
     }, [])
 
     // //Deleting
@@ -41,7 +41,7 @@ const CollectionTable = () => {
 
                                 <div className="collections">
                                     <div className="service--title text-center">
-                                        <h2 className="reg-bod-56"> <strong>All Collections</strong></h2>
+                                        <h2 className="reg-bod-56"> <strong>All Reviews</strong></h2>
                                     </div>
                                     <div className="text-center mb-3">
                                         <p style={{color: 'green', display: 'none'}} id="success">Successfully deleted the collection!</p>
@@ -62,11 +62,8 @@ const CollectionTable = () => {
                                                         <Col sm={2} xs={4} className="d-sm-block d-none">
                                                             <p className="reg-22">CATEGORY</p>
                                                         </Col>
-                                                        <Col sm={2} xs={4} className="d-sm-block d-none">
+                                                        <Col sm={4} xs={4} className="d-sm-block d-none">
                                                             <p className="reg-22">Title</p>
-                                                        </Col>
-                                                        <Col sm={2} xs={4} className="d-sm-block d-none">
-                                                            <p className="reg-22">PRICE</p>
                                                         </Col>
                                                         <Col sm={2} xs={4} className="d-sm-block">
                                                             <p className="reg-22">ACTION</p>
@@ -74,27 +71,24 @@ const CollectionTable = () => {
                                                     </Row>
                                                 </div>
 
-                                                {collections.map((collection, count) => (
-                                                    <div className="card--data" data-aos="fade-left" data-aos-duration="1000" key={collection._id}>
+                                                {reviews.map((review, count) => (
+                                                    <div className="card--data" data-aos="fade-left" data-aos-duration="1000" key={review._id}>
                                                         <div className="row mb-4">
-                                                            <Col sm={1} xs={4} className="profile">
+                                                            <Col sm={1} xs={4} className="d-flex align-items-center justify-content-center profile">
                                                                 <div className="platform--icon mr-lg-4 mr-3 text-center">
                                                                     <h3>{1+count++}</h3>
                                                                 </div>
                                                             </Col>
                                                             <Col sm={3} xs={4} className="d-flex align-items-center justify-content-center">
                                                                 <div className="platform">
-                                                                    <p>{collection.addedBy}</p>
+                                                                    <p>{review.author}</p>
                                                                 </div>
                                                             </Col>
-                                                            <Col sm={2} xs={4} className="label">
-                                                                    <p id="label-one">{collection.category}</p>
+                                                            <Col sm={2} xs={4} className="d-flex align-items-center justify-content-center platform">
+                                                                    <p id="label-one">{review.title}</p>
                                                             </Col>
-                                                            <Col sm={2} xs={4} className="traffic">
-                                                                <p id="traffic-one">{collection.title.slice(0, 15)}...</p>
-                                                            </Col>
-                                                            <Col sm={2} xs={4} className="price">
-                                                                <p className=""><span id="price-one">{collection.price}$ USD</span></p>
+                                                            <Col sm={4} xs={4} className="d-flex align-items-center justify-content-center traffic">
+                                                                <p id="traffic-one">{review.desc.slice(0, 50)}...</p>
                                                             </Col>
                                                             <Col sm={2} xs={4} className="store">
                                                                 <button id="store-one">DELETE</button>
@@ -118,4 +112,4 @@ const CollectionTable = () => {
     );
 };
 
-export default CollectionTable;
+export default ReviewsTable;

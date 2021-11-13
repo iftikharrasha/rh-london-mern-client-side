@@ -178,3 +178,18 @@ a, select , input , textarea , button{
         transition: all .5s ease-in-out;
     }
 }
+
+.loading{
+    @include flexCenter;
+    min-height: 90vh;
+}
+
+
+.story-rating{
+    span{
+        i{
+            font-size: 1.25rem;
+            color: $fc4;
+        }
+    }
+}

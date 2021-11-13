@@ -70,14 +70,6 @@
         h3{
             font-weight: bold;
         }
-        .story-rating{
-            span{
-                i{
-                    font-size: 1.25rem;
-                    color: $fc4;
-                }
-            }
-        }
     }
     .story:hover &-caption {
         opacity: 1;

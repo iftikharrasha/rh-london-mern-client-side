@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
-const CollectionTable = () => {
-    const [collections, setCollections] = useState([]);
+const Orders = () => {
+    const [orders, setOrders] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/collections')
+        fetch('http://localhost:5000/orders')
         .then(res => res.json())
-        .then(data => setCollections(data));
+        .then(data => setOrders(data));
     }, [])
 
     // //Deleting
@@ -41,11 +41,11 @@ const CollectionTable = () => {
 
                                 <div className="collections">
                                     <div className="service--title text-center">
-                                        <h2 className="reg-bod-56"> <strong>All Collections</strong></h2>
+                                        <h2 className="reg-bod-56"> <strong>Manage Orders</strong></h2>
                                     </div>
                                     <div className="text-center mb-3">
-                                        <p style={{color: 'green', display: 'none'}} id="success">Successfully deleted the collection!</p>
-                                        <p style={{color: 'red', display: 'none'}} id="error">There is a problem deleting the collection!</p>
+                                        <p style={{color: 'green', display: 'none'}} id="success">Successfully deleted the order!</p>
+                                        <p style={{color: 'red', display: 'none'}} id="error">There is a problem deleting the order!</p>
                                     </div>
 
                                     <div className="service--table mt-5">
@@ -54,19 +54,19 @@ const CollectionTable = () => {
                                                 <div className="card--title">
                                                     <Row>
                                                         <Col sm={1} xs={4} className="text-center">
-                                                            <p className="reg-22">NO.</p>
+                                                            <p className="reg-22">TOKEN</p>
                                                         </Col>
                                                         <Col sm={3} xs={4} className="text-center">
-                                                            <p className="reg-22">Added By</p>
+                                                            <p className="reg-22">Name</p>
                                                         </Col>
                                                         <Col sm={2} xs={4} className="d-sm-block d-none">
-                                                            <p className="reg-22">CATEGORY</p>
+                                                            <p className="reg-22">Status</p>
                                                         </Col>
                                                         <Col sm={2} xs={4} className="d-sm-block d-none">
-                                                            <p className="reg-22">Title</p>
+                                                            <p className="reg-22">Phone</p>
                                                         </Col>
                                                         <Col sm={2} xs={4} className="d-sm-block d-none">
-                                                            <p className="reg-22">PRICE</p>
+                                                            <p className="reg-22">ACTION</p>
                                                         </Col>
                                                         <Col sm={2} xs={4} className="d-sm-block">
                                                             <p className="reg-22">ACTION</p>
@@ -74,27 +74,27 @@ const CollectionTable = () => {
                                                     </Row>
                                                 </div>
 
-                                                {collections.map((collection, count) => (
-                                                    <div className="card--data" data-aos="fade-left" data-aos-duration="1000" key={collection._id}>
+                                                {orders.map((order) => (
+                                                    <div className="card--data" data-aos="fade-left" data-aos-duration="1000" key={order._id}>
                                                         <div className="row mb-4">
                                                             <Col sm={1} xs={4} className="profile">
                                                                 <div className="platform--icon mr-lg-4 mr-3 text-center">
-                                                                    <h3>{1+count++}</h3>
+                                                                    <h3>{order.orderId.slice(0,5)}</h3>
                                                                 </div>
                                                             </Col>
                                                             <Col sm={3} xs={4} className="d-flex align-items-center justify-content-center">
                                                                 <div className="platform">
-                                                                    <p>{collection.addedBy}</p>
+                                                                    <p>{order.name}</p>
                                                                 </div>
                                                             </Col>
                                                             <Col sm={2} xs={4} className="label">
-                                                                    <p id="label-one">{collection.category}</p>
+                                                                {order.status ? <p id="label-one">Pending</p> : <p id="label-one">Shipping</p>} 
                                                             </Col>
                                                             <Col sm={2} xs={4} className="traffic">
-                                                                <p id="traffic-one">{collection.title.slice(0, 15)}...</p>
+                                                                <p id="traffic-one">{order.phone}</p>
                                                             </Col>
-                                                            <Col sm={2} xs={4} className="price">
-                                                                <p className=""><span id="price-one">{collection.price}$ USD</span></p>
+                                                            <Col sm={2} xs={4} className="store">
+                                                                <button id="store-one">APPROVE</button>
                                                             </Col>
                                                             <Col sm={2} xs={4} className="store">
                                                                 <button id="store-one">DELETE</button>
@@ -118,4 +118,4 @@ const CollectionTable = () => {
     );
 };
 
-export default CollectionTable;
+export default Orders;

@@ -5,7 +5,7 @@ import useAuth from '../../hooks/useAuth';
 
 const PrivateRoute = ({ children, ...rest }) => {
 	const { loggedInUser, isLoading } = useAuth();
-	if (isLoading) { return <div className="loader">
+	if (isLoading) { return <div className="loading">
 								<img src={preloader} alt={preloader} className="img-fluid"/>
 							</div> }
     return (

@@ -889,11 +889,6 @@
   font-weight: bold;
 }
 
-.story .story-text .story-rating span i {
-  font-size: 1.25rem;
-  color: var(--fc4);
-}
-
 .story:hover .story-caption {
   opacity: 1;
   -webkit-transform: translate(-50%, -50%);
@@ -918,6 +913,12 @@
   /****** Extra extra small devices (s6 mobiles, 320px and below) *******/
 }
 
+@media (min-width: 576px) {
+  .details .h-min {
+    min-height: 45rem;
+  }
+}
+
 .details .details-div {
   position: relative;
   width: 100%;
@@ -930,12 +931,24 @@
   top: 10rem;
 }
 
+@media (max-width: 575.98px) {
+  .details .details-div .detail-info {
+    position: static;
+  }
+}
+
 .details .details-div .detail-info .anime {
   position: absolute;
   top: 25rem;
   left: 10%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+}
+
+@media (max-width: 575.98px) {
+  .details .details-div .detail-info .anime {
+    top: 15rem;
+  }
 }
 
 .details .details-div .detail-info .anime span {
@@ -991,6 +1004,19 @@
     -webkit-transform: rotate(45deg) translate(20px, 20px);
             transform: rotate(45deg) translate(20px, 20px);
   }
+}
+
+.details .below h3 {
+  color: var(--fc4);
+  font-weight: 700;
+}
+
+.details .below h2 span {
+  font-family: var(--ff3);
+}
+
+.details .below span a {
+  color: var(--fc4);
 }
 
 @media (max-width: 575.98px) {
@@ -1053,6 +1079,44 @@
   .details .detail-info {
     bottom: 270px;
   }
+}
+
+.order {
+  padding: 5rem 3.125rem !important;
+}
+
+.order .form input {
+  font-weight: bold;
+  color: green;
+}
+
+.modal-header {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal-header h4 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.close {
+  font-size: 3.5rem;
+  font-weight: 400;
+  opacity: 1;
+}
+
+.btn-primary {
+  color: #070c0b;
+  background-color: #d2b48c;
+  border-color: #ffffff;
+  font-weight: 700;
+}
+
+.btn-primary:hover {
+  background-color: var(--fc3);
+  border-color: transparent;
 }
 
 .login {
@@ -2050,5 +2114,23 @@ a, select, input, textarea, button {
   background-color: var(--fc5);
   -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
+}
+
+.loading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 90vh;
+}
+
+.story-rating span i {
+  font-size: 1.25rem;
+  color: var(--fc4);
 }
 /*# sourceMappingURL=style.css.map */
